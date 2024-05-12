@@ -1,0 +1,85 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "[python]": {
+
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "[ini]": {
+        
+    },
+    "editor.fontFamily": "'BerkeleyMono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
+    "editor.minimap.enabled": false,
+    //"editor.renderWhitespace": "all",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "%DOCFILE%.bbl",
+        "%DOCFILE%.blg",
+        "%DOCFILE%.idx",
+        "%DOCFILE%.ind",
+        "%DOCFILE%.lof",
+        "%DOCFILE%.lot",
+        "%DOCFILE%.out",
+        "%DOCFILE%.toc",
+        "%DOCFILE%.acn",
+        "%DOCFILE%.acr",
+        "%DOCFILE%.alg",
+        "%DOCFILE%.glg",
+        "%DOCFILE%.glo",
+        "%DOCFILE%.gls",
+        "%DOCFILE%.fls",
+        "%DOCFILE%.log",
+        "%DOCFILE%.fdb_latexmk",
+        "%DOCFILE%.snm",
+        "%DOCFILE%.synctex(busy)",
+        "%DOCFILE%.synctex.gz(busy)",
+        "%DOCFILE%.nav",
+        "%DOCFILE%.vrb"
+    ],
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "workbench.panel.defaultLocation": "bottom",
+    //
+    "editor.fontVariations": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    "editor.wordWrap": "on",
+    "editor.fontLigatures": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    
+    "workbench.layoutControl.enabled": false,
+    "window.title": "${dirty}${activeEditorShort}",
+    "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "workbench.activityBar.iconClickBehavior": "focus",
+    "editor.hideCursorInOverviewRuler": false,
+    "editor.scrollbar.verticalScrollbarSize": 15,
+    "problems.showCurrentInStatus": true,
+    "[latex]": {
+        "editor.defaultFormatter": "nickfode.latex-formatter"
+    },
+    "glassit.step": 3,
+    "glassit.alpha": 210, // 230
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "*.rmd": "markdown"
+    },
+    "git.autofetch": true,
+    "jupyter.askForKernelRestart": false,
+    "window.menuBarVisibility": "hidden",
+    "window.enableMenuBarMnemonics": false,
+    "window.zoomLevel": 2,
+    "breadcrumbs.enabled": false,
+    "notebook.lineNumbers": "on",
+    "latex-workshop.view.pdf.color.dark.backgroundColor": "#000000",
+    "latex-workshop.view.pdf.color.light.backgroundColor": "",
+    "latex-workshop.view.pdf.color.dark.pageBorderColor": "#000000",
+    "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#000000",
+    "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#000000",
+    "workbench.iconTheme": "material-icon-theme",
+    "notebook.output.scrolling": true,
+    "workbench.colorTheme": "Wal",
+    "haskell.manageHLS": "GHCup",
+}

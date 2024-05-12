@@ -1,0 +1,14 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+d",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+              // commands to run in sequence
+              "workbench.action.toggleActivityBarVisibility",
+              "workbench.action.toggleSidebarVisibility"
+            ]
+          }
+    }
+]
