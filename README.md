@@ -18,3 +18,10 @@ Below is a list of software I frequently use:
 | App Launcher | [Rofi](https://github.com/davatorium/rofi) |
 
 Feel free to check out these programs if you're interested.
+
+# TODO:
+- rofi rice
+- thunar rice + upload dot files
+- fix .gitignore for vsc
+- zathura?
+- actually make eww bar look good (it is merely functional)
