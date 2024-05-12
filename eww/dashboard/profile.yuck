@@ -1,0 +1,54 @@
+(defwidget profile []
+	(box :class "profile"
+		(box :class "border"
+			:orientation "v"
+			(profile_picture)
+			(name)
+		)
+	)
+)
+
+(defwidget profile_picture []
+	(box 
+		(label 
+			:class "profile_picture"
+			:text ""
+		)
+	)
+)
+
+(defwidget name []
+	(box
+		:halign "start"
+		:orientation "v"
+		(label :class "profile-profile_name" :halign "start"
+			:text "${username}"
+		)
+		(label :class "profile-profile_name" :halign "start"
+			:text "${hostname}"
+		)
+		(eventbox :onhover "get_ip" ;; need to make script
+			(label :class "profile-profile_name" :halign "start"
+				:text "IP"
+			)
+		)
+		(label :class "profile-profile_name" :halign "start"
+			:text "???"
+		)
+	)
+
+)
+(defpoll username :interval "10h" "whoami")
+(defpoll hostname :interval "10h" "hostname")
+
+(defwindow profile 
+	:monitor 0
+	:windowtype "desktop"
+	:geometry (geometry :x 440
+						:y 300
+						:width 400
+						:height 450
+						:anchor "top left")
+	:focusable false
+	(profile)
+)

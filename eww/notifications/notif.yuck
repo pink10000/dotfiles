@@ -1,0 +1,73 @@
+(defvar end-notifications "")
+
+(defwindow notification-frame
+ :monitor 0
+ :geometry (geometry 
+     :x "20px"
+     :y "20px"
+     :width "480px"
+     :height "0px"
+     :anchor "bottom right")
+ :stacking "overlay"
+;  :windowtype "dialog"
+ (literal :content end-notifications))
+
+(defwidget end-notification 
+    [notification]
+    (box 
+        :class "end-default-notification-box"
+        :orientation "v"
+        (box
+            :orientation "vertical"
+            (label
+                :class "notification-title notification-text"    
+                :yalign 1
+                :xalign 0 
+                :text "${notification['application']}"
+            )
+            (label
+                :class "notification-content notification-text"
+                :yalign 1
+                :xalign 0
+                :text {notification['body']}
+            )
+        )
+        (label
+            :class "notification-title notification-text"    
+            :yalign 1
+            :xalign 0 
+            :text {substring(notification['summary'], 0, 200)}
+        )
+    )
+)
+
+(defwidget battery-widget
+  [end-id end-appname end-appicon end-summary end-body end-hints end-actions]
+  (eventbox
+    :onclick { matches(end-actions, "key: \"default\"") ? "/usr/local/bin/end action ${end-id} default" : "/usr/local/bin/end close ${end-id}" }
+    (box
+      :class "end-default-notification-box"
+      :orientation "horizontal"
+      :space-evenly false
+      (label
+        :class "notification-text battery-icon"
+        :yalign 0.5
+        :xalign 0.5
+        :text "󰁺"
+      )
+      (box
+        :orientation "vertical"
+        :hexpand true
+        (label 
+          :class "notification-text notification-title"
+          :hexpand true
+          :yalign 0.5
+          :xalign 0
+          :text "Low Battery")
+        (label
+          :class "notification-text"
+          :vexpand true
+          :hexpand true
+          :yalign 0.5
+          :xalign 0
+          :text "${EWW_BATTERY["BAT0"]["capacity"]}% remaining")))))

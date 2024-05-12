@@ -1,0 +1,37 @@
+(defwidget battery_board []
+    (box
+        :class "battery"
+        (box :class "border"
+            (battery_box)
+        )
+    )
+)
+
+(defwidget battery_box []
+    (overlay
+        ; :valign "center"    
+        (scale :class "battery-slider"
+            :orientation "h"
+            :value "${battery-capacity}.0"
+            :min 1
+            :max 101
+            :active true
+            :flipped false
+        )
+        (label :text "${battery-capacity}")
+    )
+
+)
+
+
+(defwindow battery_board 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1040
+                        :y 1350
+                        :width 400
+                        :height 150
+                        :anchor "top left")
+    :focusable false
+    (battery_board)
+)

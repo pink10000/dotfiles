@@ -1,0 +1,32 @@
+(defwidget dashboard []
+    (eventbox :onclick "bash launch.sh close; bash launch.sh close"
+        (overlay
+            (background)
+            (test)
+        )
+    )
+)
+
+(defwidget background []
+    (box
+        :class "blbox"
+        :width 2000
+        :height 1200
+    )
+)
+
+(defwidget test []
+    (label :text "test")
+)
+
+(defwindow dashboard
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "10%"
+                        :height "10%"
+                        :anchor "center center")
+    :focusable false
+    (dashboard)
+)

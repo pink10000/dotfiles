@@ -1,0 +1,20 @@
+(defwidget weather []
+    (box
+        :class "weather"
+        (box :class "border"
+            (label :text "weather")
+        )
+    )
+)
+
+(defwindow weather 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 840
+                        :y 300
+                        :width 950
+                        :height 450
+                        :anchor "top left")
+    :focusable false
+    (weather)
+)

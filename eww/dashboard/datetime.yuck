@@ -1,0 +1,50 @@
+(defwidget datetime []
+    (box :class "datetime"
+        (time)
+    )
+)
+
+(defwidget time []
+    (box
+        :class "border"
+        :orientation "v"
+        :space-evenly true
+        :hexpand "false"
+        :spacing 20
+        (box 
+            :class "test" 
+            :orientation "h"
+            :space-evenly false
+            :spacing 5
+            :halign "center"
+            :valign "end"
+            (label :class "datetime-hour" :text "${fulldate['hour']}")
+            (label :text ":")
+            (label :class "datetime-minute" :text "${fulldate['minute']}")
+            (label :class "datetime-ap" :text " ${fulldate['ap']}")
+        )
+        (box
+            :class "test"
+            :halign "center"
+            :valign "center"
+            (label :class "datetime-date" :text "${fulldate['month']} ${fulldate['day']}, ${fulldate['year']}")
+        )
+    )
+)
+(defpoll fulldate :interval "1s"
+    :initial "{}"
+    `date '+{"year":"%Y","month":"%B","day":"%d","hour":"%I","minute":"%M","second":"%S","ap":"%p"}'`
+)
+
+
+(defwindow datetime 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 590
+                        :y 750
+                        :width 450
+                        :height 200
+                        :anchor "top left")
+    :focusable false
+    (datetime)
+)

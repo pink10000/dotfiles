@@ -1,0 +1,193 @@
+(defwidget bar []
+    (centerbox :orientation "h"
+        (toolbar)
+        (workspaces)
+        (sidestuff)
+    )
+)
+(defwidget toolbar []
+    (box :class "" :orientation "h" :space-evenly false :halign "start" :spacing 10
+        ; (button :onclick "rofi -show drun &" "")
+        ; (button :onclick "vivaldi &" "")
+        ; (button :onclick "discord &" "󰙯")
+        ; (button :onclick "spotify-launcher &" "")
+        ; (button :onclick "alacritty &" "")
+        ; (button :onclick "code &" "󰨞")
+        ; (button :onclick "rofi -show vscode-recent -modi vscode-recent &" "")
+        ; (separator)
+        ; (button :onclick "screen" "󰆞")
+        ; (button :onclick "peek &" "󰵸")
+        (metric 
+            :label "RAM"
+            :value {round(EWW_RAM.used_mem_perc, 1)}
+            :onchange ""
+        )
+        (metric 
+            :label "CPU"
+            :value {round(EWW_CPU.avg, 1)}
+            :onchange ""
+        )
+    )
+)
+
+(defwidget sidestuff []
+    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 5
+        (button
+            :onclick "eww close notification-frame"
+            (box (label :text "clear notifs"))
+        )
+        (separator)
+        (microph)
+        (separator)
+        (volum)
+        (separator)
+        
+        (separator)
+        (battery)
+        (separator)
+        (_network 
+            :strength net
+            :excellent "󰤨"
+            :good "󰤥"
+            :okay "󰤢"
+            :slow "󰤟"
+            :offline "󰤮"
+        )
+        (separator)
+        (box
+            :tooltip "${fulldate['month']} ${fulldate['day']}, ${fulldate['year']}"
+            (label :class "metric-label" :text "${fulldate['hour']}:${fulldate['minute']} ${fulldate['ap']}")
+        )
+    )
+)
+  
+(deflisten workspace
+    "scripts/checkws.sh 0"
+)
+  
+(defwidget workspaces []
+    (literal :content workspace)
+)
+
+(defwidget volum []
+	(eventbox
+        :onscroll       "pulseaudio-control --volume-max 150 {}"
+        :onrightclick   "scripts/popup.sh audio &"
+        :onclick        "pulseaudio-control togmute; eww update output_muted=${output_muted ? false : true}" 
+        :class {output_muted ? "icon-muted" : ""}
+        (box 
+            :space-evenly false
+            :spacing 0
+            (label :text '${output_muted ? "󰕿": "󰕾"} ${volume['output']}% ')
+            (label :text "-")
+            (label :class "audio-icon" :text "${pavu['output']}")
+            (label :text "-")
+        )
+    )
+)
+(defwidget microph []
+    (eventbox
+        :onscroll       "pulseaudio-control --node-type input --volume-max 150 {}"
+        :onclick        "pulseaudio-control --node-type input togmute; eww update input_muted=${input_muted ? false : true}"
+        :onrightclick   "scripts/popup.sh audio &"
+        :class {input_muted ? "icon-muted" : ""}
+        (box 
+            :space-evenly false
+            :spacing 0
+            (label :text '${input_muted ? "": ""} ${volume['input']}% ')
+            (label :text "-")
+            (label :class "audio-icon" :text "${pavu['input']}")
+            (label :text "-")
+        )
+    )
+)
+(defpoll volume :interval "50ms" :initial '{"output":"64","input":"14"}' "scripts/getvol.sh output &")
+(defpoll pavu :interval "1s" 
+    :initial '{"output":"o","input":"i"}'
+    "bash scripts/channel.sh &"
+)
+(defvar output_muted false)
+(defvar input_muted false)
+
+(defwidget metric [label value onchange]
+    (box 
+        :orientation "h" 
+        :class "metric"
+        :space-evenly false
+        :tooltip "${value}%"
+        :width 100
+        (box :class "metric-label" label)
+        (scale 
+            :min 0
+            :max 101
+            :active {onchange != ""}
+            :value value
+            :onchange onchange
+        )
+    )
+)
+
+(defwidget _network [strength offline excellent good okay slow]
+    (button
+        :onclick "scripts/popup.sh wifi &"
+        (box   
+            :class "net-box"
+            :space-evenly false
+            :spacing 8
+            :tooltip "${network_name}(${net})"
+            (label 
+                :text {strength == "N/A" ? offline 
+                : strength < 26 ? slow 
+                : strength < 51 ? okay 
+                : strength < 76 ? good 
+                : excellent}
+            )
+        )
+    )
+)
+
+(defwidget battery []
+	(box	
+        :orientation "h"
+        :valign "center"	
+        :halign "center"	
+		:space-evenly true
+        :tooltip "Battery: ${battery-capacity}%"
+        (label	
+            :valign "center"	
+            :halign "center"	
+            :class {"${battery}" == "󱐋" ? "bat-charging" : "bat" }		
+            :text "${battery}"
+        )            
+    )
+)
+(defpoll battery			:interval "1s"	"scripts/battery.sh icon &")
+(defpoll battery-capacity	:interval "1s"	"scripts/battery.sh percent &")
+
+(defwidget separator []
+    (label :text "|")
+)
+
+(defpoll net :interval "100s"
+  :initial `N/A`
+  `nmcli -t -f SIGNAL,ACTIVE device wifi \
+    | awk -F':' '{if($2=="yes")print$1}'`
+)
+
+(defpoll network_name :interval "5s"
+    :initial "N/A"
+    `nmcli -t -f active,ssid dev wifi | grep -E "^yes" | cut -d":" -f2` 
+)
+
+(defwindow bar
+    :monitor 0
+    :windowtype "dock"
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "100%"
+                        :height "10px"
+                        :anchor "top center")
+    :reserve (struts :side "top" :distance "4%")
+    :exclusive true
+    (bar)
+)

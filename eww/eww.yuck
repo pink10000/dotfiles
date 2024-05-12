@@ -1,0 +1,26 @@
+(include "/home/py/.config/eww/bar/bar.yuck")
+
+(include "/home/py/.config/eww/dashboard/dashboard.yuck")
+(include "/home/py/.config/eww/dashboard/profile.yuck")
+(include "/home/py/.config/eww/dashboard/quickapps.yuck")
+(include "/home/py/.config/eww/dashboard/datetime.yuck")
+(include "/home/py/.config/eww/dashboard/status.yuck")
+(include "/home/py/.config/eww/dashboard/weather.yuck")
+(include "/home/py/.config/eww/dashboard/volume.yuck")
+(include "/home/py/.config/eww/dashboard/brightness.yuck")
+(include "/home/py/.config/eww/dashboard/song.yuck")
+(include "/home/py/.config/eww/dashboard/battery.yuck")
+(include "/home/py/.config/eww/dashboard/fetch.yuck")
+(include "/home/py/.config/eww/dashboard/bluetooth.yuck")
+(include "/home/py/.config/eww/dashboard/powerbuttons.yuck")
+(include "/home/py/.config/eww/dashboard/calendar.yuck")
+
+(include "/home/py/.config/eww/notifications/notif.yuck")
+
+
+;; picture of cat or something
+;; pc temp
+;; grouped picture
+;; running processes
+;; mini neofetch
+;; calendar

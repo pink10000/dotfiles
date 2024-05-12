@@ -1,0 +1,19 @@
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
+* {
+  selected-normal-background: #45443C;
+}
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "Papirus-Apps";
+  terminal:           "kitty";
+  cycle:              false;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  opacity:            0.5;
+}
+
+
+

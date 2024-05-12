@@ -1,0 +1,48 @@
+(defwidget brightness []
+    (box :class "brightness"
+        (box :class "border"
+            (brightness-slider)
+        )
+    )
+)
+
+(defwidget brightness-slider []
+    (box
+        :orientation "v" 
+        :space-evenly "false"
+        :valign "center"
+        :spacing 5
+        (eventbox
+            :onscroll "scripts/brightness.sh up"
+            (scale :class "volume-slider"
+                :value "${brigh}.0"
+                :orientation "v"
+                :height 450
+                :active true
+                :max 350
+                :min 0
+                :flipped true
+                :onchange "scripts/brightness.sh set {}"
+            )
+        )
+        (button 
+            :onclick "" 
+            :class "brightness-icon"
+            "󰌵"
+        )
+    )
+)
+(defpoll brigh :interval "3m" :initial "0" "scripts/brightness.sh get")
+
+
+(defwindow brightness 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 890
+                        :y 950
+                        :width 150
+                        :height 550
+                        :anchor "top left")
+    :focusable false
+    (brightness)
+)

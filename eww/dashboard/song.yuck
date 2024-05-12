@@ -1,0 +1,29 @@
+(defwidget song []
+    (box
+        :class "song"
+        (box :class "border"
+            (bars)
+        )
+    )
+)
+
+(deflisten soundBars
+    `scripts/cava.sh`)
+
+(defwidget bars []
+    (box :halign "start"
+        (label :text "${soundBars}")
+    )
+)
+
+(defwindow song 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1040
+                        :y 750
+                        :width 750
+                        :height 200
+                        :anchor "top left")
+    :focusable false
+    (song)
+)

@@ -1,0 +1,19 @@
+(defwidget powerbuttons []
+    (box
+        :class "powerbuttons"
+        (box :class "border"
+            (label :text "powerbuttons")
+        )
+    )
+)
+
+(defwindow powerbuttons 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 2000
+                        :y 300
+                        :width 300
+                        :height 300
+                        :anchor "top left")
+    (powerbuttons)
+)

@@ -1,0 +1,23 @@
+(defwidget calendar1 []
+    (box
+        :class "calendar"
+        (box :class "border"
+           
+        )
+    )
+)
+
+
+
+
+(defwindow calendar 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1690
+                        :y 950
+                        :width 600
+                        :height 550
+                        :anchor "top left")
+                        :focusable false
+    (calendar1)
+)

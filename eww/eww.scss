@@ -1,0 +1,284 @@
+@import "/home/py/.cache/wal/colors.scss";
+
+* {
+    all: unset; //Unsets everything so you can style everything from scratch
+    font-family: "LiterationMono Nerd Font Propo";
+    // font-family: "Berkeley Mono Trial";
+    // padding: 10;
+  }
+
+$padding: 10px;
+
+//Global Styles
+.bar {
+    background-color: $background;
+    color: $foreground;
+    padding: 1px;
+}
+
+// Styles on classes (see eww.yuck for more information)
+
+.sidestuff slider {
+    all: unset;
+    color: #ffd5cd;
+}
+
+// metric color
+.metric scale trough highlight {
+    all: unset;
+    background-color: $color2;
+    color: #000000;
+    border-radius: 10px;
+}
+// metric non color
+.metric scale trough {
+    all: unset;
+    background-color: #4e4e4e;
+    border-radius: 50px;
+    min-height: 10px;
+    min-width: 90px;
+    margin-left: 10px;
+    // margin-right: 20px;
+}
+.metric-label {
+    all: unset;
+    color: $color9;
+    border-radius: 10px;
+}
+// .workspaces button:hover {
+    // color: #D35D6E;
+// }
+.workspace-highlight {
+    background-color: $foreground;
+    color: $background; 
+}
+
+.audio-icon {
+    color: $color4;
+}
+.icon-muted {
+    color: grey;
+}
+
+.bat{
+    all: unset;
+}
+
+.bat-charging{
+    color:#77dd77
+}
+
+// dashboard
+
+.blbox {
+    color: black;
+    background-color: black
+}
+
+.profile {
+    background-color: palevioletred;
+    padding: $padding;
+
+    &-profile_picture {
+        font-size: 150px;
+    }
+    
+    &-profile_name {
+        font-size: 30px;
+    }
+    
+}
+
+.quickapps {
+    background-color: #77dd77;
+    padding: $padding;
+    
+    &-icons {
+        font-size: 60px;
+    }
+}
+
+.datetime {
+    background-color: burlywood;
+    padding: $padding;
+    $time_font_size: 50px;
+
+    &-hour {
+        font-size: $time_font_size;
+    }
+    &-minute {
+        font-size: $time_font_size;
+    }
+    &-ap {
+        font-size: $time_font_size;
+    }
+    &-date {
+        font-size: 30px;
+    }
+}
+
+.status {
+    background-color: coral;
+    padding: $padding;
+}
+
+.weather {
+    background-color:firebrick;
+    padding: $padding;
+}
+
+.border {
+    background-color:cornflowerblue;
+    border-radius: 24px;
+}
+
+.volume {
+    background-color:purple;
+    padding: $padding;
+    &-icon {
+        font-size: 28px;
+    }
+}
+
+.brightness {
+    background-color:darkred;
+    padding: $padding;
+    &-icon {
+        font-size: 28px;
+    }
+}
+
+.song {
+    background-color:cadetblue;
+    padding: $padding;
+}
+
+.test {
+    background-color: crimson;
+}
+
+.volume-slider trough {
+    border-radius: 20px;
+    background-color:#000000;
+    min-width: 10px;
+    box-shadow: 0px 0px 7px #141414;
+}
+
+.volume-slider highlight {
+    border-radius: 20px;
+    background: linear-gradient(to bottom, #77dd77, #ffd5cd);
+}
+
+.volume-slider-icon {
+    color:lime;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.battery {
+    background-color: darkviolet;
+    padding: $padding;
+}
+
+.battery-slider trough {
+    border-radius: 20px;
+    background-color:#000000;
+    min-height: 130px;
+    // box-shadow: 0px 0px 7px #141414;
+}
+
+.battery-slider highlight {
+    border-radius: 20px;
+    background: linear-gradient(to right, #77dd77, #ffd5cd);
+}
+
+.res_box {
+	// background-color: #9484ac;
+	border-radius: 24px;
+	padding: 20px 25px 20px 25px;
+}
+
+.res_circle {
+	background-color: #240e0e;
+	border: 0px solid #161616;
+    padding: 20px;
+	border-radius: 100%;
+}
+
+.vol_circle {
+	background-color: #240e0e;
+	border: 5px solid #161616;
+    padding: 15px;
+	border-radius: 100%;
+}
+
+.vol_res_box {
+    // background-color: #9484ac;
+    border-radius: 24px;
+    padding: 40px 35px 40px 35px;
+}
+
+.fetch {
+    background-color:chocolate;
+    padding: $padding;
+}
+
+.bluetooth {
+    background-color:blue;
+    padding: $padding;
+}
+
+.powerbuttons {
+    background-color:skyblue;
+    padding: $padding;
+}
+
+.calendar {
+    background-color:skyblue;
+    padding: $padding;
+}
+
+.w0, .w01, .w02, .w03, .w04, .w05, .w06, .w07, .w08, .w09, .w011, .w022, .w033, .w044, .w055, .w066, .w077, .w088, .w099 {
+    padding: 3px 5px;
+    box-shadow: inset 0 -2px transparent;
+}
+  
+/* Unoccupied */
+.w0 {
+    color: #a89984;
+}
+
+/* Occupied */
+.w01, .w02, .w03, .w04, .w05, .w06, .w07, .w08, .w09 {
+    color: #fbf1c7;
+}
+
+/* Focused */
+.w011, .w022, .w033, .w044, .w055, .w066, .w077, .w088, .w099 {
+    color: #fbf1c7;
+    box-shadow: inset 0 -3px $color2;
+}
+
+.end-default-notification-box {
+    background-color: $background; 
+    color: $foreground;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 10px;
+    border-color: $foreground;
+    border: 3px solid;  
+}
+.notification-text {
+  color: $foreground; 
+  // font-family: 'Your Favorite Font'
+  font-size: 12px;
+}
+
+.notification-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.notification-content {
+  font-size: 12px;
+}

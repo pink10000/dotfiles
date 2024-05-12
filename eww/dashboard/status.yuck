@@ -1,0 +1,65 @@
+(defwidget status []
+    (box
+        :class "status"
+        (box :class "border" :orientation "v"
+            (row1)
+            (row2)
+        )
+    )
+)
+
+;; MAKE THE FONT THICKER !!!!
+(defwidget row1 []
+    (box :class "res_box" :spacing 35 
+        (box :class "res_circle"
+            (circular-progress
+                :value {EWW_CPU.avg}
+                :thickness 20
+                (label :text "CPU")
+            )
+        )
+        (box :class "res_circle"
+            (circular-progress
+                :value {EWW_RAM.used_mem_perc}
+                :thickness 20
+                (label :text "RAM")
+            )
+        )
+    )
+
+)
+
+(defwidget row2 []
+    (box :class "res_box" :spacing 35 
+        (box :class "res_circle"
+            (circular-progress
+                :value {EWW_DISK["/"].used_perc}
+                :thickness 20
+                :clockwise true
+                (label :text "DISK")
+            )
+        )
+        (box :class "res_circle"
+            (circular-progress
+                :value {EWW_TEMPS.CORETEMP_CORE_0}
+                :thickness 20
+                (label :text "TEMP")
+            
+            )
+        )
+    )
+
+)
+
+
+(defwindow status 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1040
+                        :y 950
+                        :width 400
+                        :height 400
+                        :anchor "top left")
+    :focusable false
+    (status)
+)

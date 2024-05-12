@@ -1,0 +1,216 @@
+
+general {
+    gaps_in = 3
+    gaps_out = 3
+    border_size = 2
+    col.active_border = rgba(cba6f7ff) rgba(89b4faff) rgba(94e2d5ff) 10deg
+    col.inactive_border = 0xff313244
+    # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
+    apply_sens_to_raw = 0
+    no_cursor_warps = 0
+}
+
+decoration {
+    rounding = 0
+    #multisample_edges = true
+
+    active_opacity = 0.95
+    inactive_opacity = 0.9
+    fullscreen_opacity = 0.95
+
+    dim_inactive = false
+    dim_strength = 0.05
+  
+    blur {
+      enabled = true
+      size = 5
+      passes = 4
+      new_optimizations = true
+    }
+
+    drop_shadow = true
+    shadow_ignore_window = true
+    shadow_range = 20
+    shadow_render_power = 3
+    col.shadow = 0x55161925
+    col.shadow_inactive = 0x22161925
+    # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
+    # if you want heavy blur, you need to up the blur_passes.
+    # the more passes, the more you can up the blur_size without noticing artifacts.
+
+    # Blurring layerSurfaces
+    # blurls = gtk-layer-shell
+    # blurls = waybar
+    # blurls = lockscreen
+    blurls = rofi
+    blurls = wofi
+}
+
+animations {
+    enabled = true
+    # bezier = overshot, 0.05, 0.9, 0.1, 1.1
+    bezier = overshot, 0.13, 0.99, 0.29, 1.1
+    animation = windows, 1, 4, overshot, slide
+    animation = border, 1, 10, default
+    animation = fade, 1, 10, default
+    animation = workspaces, 1, 6, overshot, slide
+}
+
+dwindle {
+    pseudotile = true # enable pseudotiling on dwindle
+    force_split = 0
+    preserve_split = true
+}
+
+master {
+    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+    new_is_master = true
+}
+
+gestures {
+    workspace_swipe = true
+    workspace_swipe_invert = false
+    workspace_swipe_fingers = 3
+    workspace_swipe_use_r = true
+}
+
+# Example per-device config
+# See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
+device:epic mouse V1 {
+    sensitivity = -0.5
+}
+
+misc {
+    vfr = true
+    disable_hyprland_logo = true
+
+    focus_on_activate = true
+
+    enable_swallow = false
+    swallow_regex = ^(kitty)$
+}
+
+
+binds {
+    allow_workspace_cycles = true
+}
+
+$mainMod = SUPER
+
+# Miscelany
+$volume = ~/.scripts/volume
+$backlight = ~/.scripts/brightness
+$screenshot = ~/.scripts/screenshot
+
+custom {
+    rules {
+      windowrule = float, title:^(fly_is_kitty)$
+      windowrule = size 800 500, title:^(fly_is_kitty)$
+      windowrule = move center, title:^(fly_is_kitty)$
+      windowrule = animation slide, title:^(fly_is_kitty)$
+
+      windowrule = float, title:^(all_is_kitty)$
+
+      windowrule = float, title:^(clock_is_kitty)$
+      windowrule = size 325 180, title:^(clock_is_kitty)$
+
+      windowrule = float, title:^(donut_is_kitty)$
+      windowrule = size 660 486, title:^(donut_is_kitty)$
+
+      windowrule = animation popin, title:^(donut_is_kitty)$
+
+      windowrule = float,^(rlr)$
+      windowrule = float,^(pavucontrol)$
+      windowrule = float,^(blueman-manager)$
+      windowrule = float,^(nm-connection-editor)$
+      windowrule = float,^(mediainfo-gui)$
+      windowrule = tile,^(neovide)$
+      windowrulev2 = float, class:^(firefox)$, title:^(Firefox — Sharing Indicator)$
+      windowrulev2 = float, class:^(nemo)$, title:^(.*Properties)$
+      windowrulev2 = float, class:^(Nemo-preview-start)$
+
+      windowrule = float,^(com.github.neithern.g4music)$
+      windowrule = size 670 635,^(com.github.neithern.g4music)$
+      windowrule = move center,^(com.github.neithern.g4music)$
+
+      windowrulev2 = animation slide, class:^(wofi)$
+      windowrulev2 = move 100%-433 53, class:^(wofi)$, title:^(clippick)$
+
+      windowrulev2 = animation popin, class:^(wlogout)$, title:^(wlogout)$
+      windowrulev2 = float, class:^(wlogout)$, title:^(wlogout)$
+
+      # jetbrains-idea
+      # windowrulev2 = nofocus, class:^(jetbrains-.*)$, floating:1, title:^(!Settings)$
+      # Jetbrains products
+      #windowrulev2 = float,floating:0,class:^(jetbrains-.*),title:^(win.*)
+      #windowrulev2 = float,class:^(jetbrains-.*),title:^(Welcome to.*)
+      #windowrulev2 = center,class:^(jetbrains-.*),title:^(Replace All)$
+      #windowrulev2 = forceinput,class:^(jetbrains-.*)
+      #windowrulev2 = windowdance,class:^(jetbrains-.*) # allows IDE to move child windows
+      #windowrulev2=noinitialfocus,class:^jetbrains-(?!toolbox),floating:1
+
+        # -- Fix odd behaviors in IntelliJ IDEs --
+	#! Fix focus issues when dialogs are opened or closed
+	#windowrulev2 = windowdance,class:^(jetbrains-.*)$,floating:1
+	#! Fix splash screen showing in weird places and prevent annoying focus takeovers
+	#windowrulev2 = center,class:^(jetbrains-.*)$,title:^(splash)$,floating:1
+	#windowrulev2 = nofocus,class:^(jetbrains-.*)$,title:^(splash)$,floating:1
+	#windowrulev2 = noborder,class:^(jetbrains-.*)$,title:^(splash)$,floating:1
+
+	#! Center popups/find windows
+	#windowrulev2 = center,class:^(jetbrains-.*)$,title:^( )$,floating:1
+	#windowrulev2 = stayfocused,class:^(jetbrains-.*)$,title:^( )$,floating:1
+	#windowrulev2 = noborder,class:^(jetbrains-.*)$,title:^( )$,floating:1
+	#! Disable window flicker when autocomplete or tooltips appear
+	windowrulev2 = nofocus,class:^(jetbrains-.*)$,title:^(win.*)$,floating:1
+
+  }
+
+  binds {
+  
+
+    # Resize
+    bind=SUPERCTRL,h,resizeactive,-20 0
+    bind=SUPERCTRL,l,resizeactive,20 0
+    bind=SUPERCTRL,k,resizeactive,0 -20
+    bind=SUPERCTRL,j,resizeactive,0 20
+
+    # Scroll through existing workspaces with mainMod + scroll
+    bind = $mainMod, mouse_down, workspace, e+1
+    bind = $mainMod, mouse_up, workspace, e-1
+
+    # Move/resize windows with mainMod + LMB/RMB and dragging
+    bindm = $mainMod, mouse:272, movewindow
+    bindm = $mainMod, mouse:273, resizewindow
+
+
+    # Screenshots
+    bind=,Print,exec,$screenshot --now
+    bind=SUPER,Print,exec,$screenshot --in5
+    bind=SHIFT,Print,exec,$screenshot --in10
+    bind=CTRL,Print,exec,$screenshot --win
+    bind=SUPERCTRL,Print,exec,$screenshot --area
+    bind=CTRLSHIFT,Space,exec,$screenshot --area
+
+    # Lock 
+    bind = CTRL ALT, L, exec,~/.scripts/lock
+
+    # Leave
+    bind = SUPER_SHIFT, escape, exec, playerctl --all-players stop; hyprctl dispatch exit none
+
+    # Power off
+    bind = , XF86PowerOff, exec, ~/.config/wlogout/launch.sh
+    bind = CTRLSHIFT, q, exec, ~/.config/wlogout/launch.sh
+
+    # Various dispatchers
+    bind = ALT, Tab, cyclenext
+    bind = SUPER, M, fullscreen,
+    bind = SUPER, C, exec, hyprctl dispatch centerwindow none
+    bind = SUPER_SHIFT, M, fakefullscreen,
+    bind = SUPER, P, pseudo,
+    bind = SUPER, S, togglefloating,
+    bind = SUPER_SHIFT, G, togglegroup,
+    bind = SUPER, tab, changegroupactive,
+
+  }
+}

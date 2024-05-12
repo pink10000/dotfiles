@@ -1,0 +1,47 @@
+(defwidget volume []
+    (box
+        :class "volume"
+        (box :class "border"
+            (volume-slider)
+        )
+    )
+)
+
+(defwidget volume-slider []
+    (box
+        :orientation "v"
+        :class "vol_res_box" 
+        :spacing 30
+        (box :class "vol_circle" :vexpand "false" :hexpand "false"
+            (circular-progress
+                :value "${volume.output}"
+                :thickness 10
+                (label :text "OUT ${volume.output}")
+            )
+        )
+        (box :class "vol_circle" :vexpand "false" :hexpand "false"
+            (circular-progress
+                :value "${volume.input}"
+                :thickness 10
+                (label :text "MIC ${volume.input}")
+            )
+        )
+    )
+
+)
+
+; taken from bar
+; (defpoll volume :interval "1s" "~/.config/eww/scripts/getvol.sh")
+(defpoll volume-slider-indicator :interval "1s" "scripts/volume-slider.sh")
+
+(defwindow volume 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 590
+                        :y 950
+                        :width 300
+                        :height 550
+                        :anchor "top left")
+    :focusable false
+    (volume)
+)

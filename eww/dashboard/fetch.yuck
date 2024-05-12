@@ -1,0 +1,19 @@
+(defwidget fetch []
+    (box
+        :class "fetch"
+        (box :class "border"
+            (label :text "fetch")
+        )
+    )
+)
+
+(defwindow fetch 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1790
+                        :y 300
+                        :width 300
+                        :height 300
+                        :anchor "top left")
+    (fetch)
+)

@@ -1,0 +1,35 @@
+(defwidget quickapps []
+    (box
+        :class "quickapps"
+        (box :class "border"
+            :orientation "v"
+            (col)
+        )
+    )
+)
+
+(defwidget col []
+    (box
+        :orientation "v"
+        (button :class "quickapps-icons" :onclick "code &" "󰨞")
+        (button :class "quickapps-icons" :onclick "rofi -show vscode-recent -modi vscode-recent &" "")
+        (button :class "quickapps-icons" :onclick "alacritty &" "")
+        (button :class "quickapps-icons" :onclick "thunar&" "")
+        (button :class "quickapps-icons" :onclick "code ~/.config" "")
+        (button :class "quickapps-icons" :onclick "rofi -show drun &" "")
+    )
+)
+
+
+
+(defwindow quickapps 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 440
+                        :y 750
+                        :width 150
+                        :height 750
+                        :anchor "top left")
+    :focusable false
+    (quickapps)
+)

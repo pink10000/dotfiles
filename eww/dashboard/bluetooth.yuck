@@ -1,0 +1,23 @@
+(defwidget bluetooth []
+    (box
+        :class "bluetooth"
+        (box :class "border"
+            (label :text "bluetooth")
+        )
+    )
+)
+
+
+
+
+(defwindow bluetooth 
+    :monitor 0
+    :windowtype "desktop"
+    :geometry (geometry :x 1440
+                        :y 950
+                        :width 250
+                        :height 550
+                        :anchor "top left")
+                        :focusable false
+    (bluetooth)
+)
