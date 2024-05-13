@@ -8,7 +8,7 @@
     "[ini]": {
         
     },
-    "editor.fontFamily": "'BerkeleyMono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
+    "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
     "editor.minimap.enabled": false,
     //"editor.renderWhitespace": "all",
     "latex-workshop.latex.clean.subfolder.enabled": true,
@@ -55,20 +55,17 @@
     },
     "workbench.activityBar.iconClickBehavior": "focus",
     "editor.hideCursorInOverviewRuler": false,
-    "editor.scrollbar.verticalScrollbarSize": 15,
+    "editor.scrollbar.verticalScrollbarSize": 12,
     "problems.showCurrentInStatus": true,
     "[latex]": {
         "editor.defaultFormatter": "nickfode.latex-formatter"
     },
-    "glassit.step": 3,
-    "glassit.alpha": 210, // 230
-    "cmake.configureOnOpen": true,
     "files.associations": {
         "*.rmd": "markdown"
     },
     "git.autofetch": true,
     "jupyter.askForKernelRestart": false,
-    "window.menuBarVisibility": "hidden",
+    "window.menuBarVisibility": "hidden", // ALWAYS KEEP HIDDEN !
     "window.enableMenuBarMnemonics": false,
     "window.zoomLevel": 2,
     "breadcrumbs.enabled": false,
@@ -80,6 +77,51 @@
     "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#000000",
     "workbench.iconTheme": "material-icon-theme",
     "notebook.output.scrolling": true,
-    "workbench.colorTheme": "Wal",
+    "workbench.colorTheme": "Matchalk",
     "haskell.manageHLS": "GHCup",
+    "apc.stylesheet": {
+        ".editor-group-watermark > .letterpress": "background-image: url(https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png) !important; width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #222); margin-bottom: 2rem;",
+        ".title-actions": "display: none !important",
+        ".sidebar .title-label": "visibility: hidden; padding: 0 !important", // Hide the title of the sidebar
+        ".sidebar": "padding: 0 !important; border: none !important",
+    },
+    "apc.font.family": "Berkeley Mono",
+    "apc.monospace.font.family": "Berkeley Mono",
+    "workbench.activityBar.location": "top",
+    "window.titleBarStyle": "native",
+    "apc.electron": {
+      "titleBarStyle": "hiddenInset",
+    },
+    "apc.activityBar": {
+      "size": 50,
+      "itemSize": 30,
+      "itemMargin": 0,
+      "position": "bottom"
+    },
+    "apc.statusBar": {
+        "position": "editor-top",
+        "height": 22,
+    },
+    "apc.listRow": {
+        "lists": [
+          "explorer-folders-view",
+          "quick-input-list",
+          "results",
+        ],
+        "height": 20, // changes how tall the list items in file explorer
+    },
+    "window.customTitleBarVisibility": "never",
+    "workbench.statusBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "window.density.editorTabHeight": "compact",
+    "animations.Install-Method": "Apc Customize UI++",
+    "apc.imports": [
+        "file://${userHome}/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.2/dist/updateHandler.js"
+    ],
+    "animations.CursorAnimationOptions": {
+        "CursorStyle": "line",
+        "TrailLength": 8
+    },
+    "animations.Scrolling": "None",
+    "animations.Tabs": "None",
 }

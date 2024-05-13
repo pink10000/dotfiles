@@ -6,7 +6,7 @@
         "args": {
             "commands": [
               // commands to run in sequence
-              "workbench.action.toggleActivityBarVisibility",
+              // "workbench.action.toggleActivityBarVisibility",
               "workbench.action.toggleSidebarVisibility"
             ]
           }
