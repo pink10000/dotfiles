@@ -22,6 +22,5 @@ Feel free to check out these programs if you're interested.
 # TODO:
 - rofi rice
 - thunar rice + upload dot files
-- fix .gitignore for vsc
 - zathura?
 - actually make eww bar look good (it is merely functional)
