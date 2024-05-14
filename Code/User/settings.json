@@ -2,12 +2,9 @@
     "security.workspace.trust.untrustedFiles": "open",
     "files.autoSave": "afterDelay",
     "[python]": {
-
         "diffEditor.ignoreTrimWhitespace": false
     },
-    "[ini]": {
-        
-    },
+    "[ini]": {},
     "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
     "editor.minimap.enabled": false,
     //"editor.renderWhitespace": "all",
@@ -46,7 +43,7 @@
     "editor.wordWrap": "on",
     "editor.fontLigatures": true,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-    
+    "editor.stickyScroll.enabled": false,
     "workbench.layoutControl.enabled": false,
     "window.title": "${dirty}${activeEditorShort}",
     "workbench.editor.tabActionCloseVisibility": false,
@@ -55,7 +52,7 @@
     },
     "workbench.activityBar.iconClickBehavior": "focus",
     "editor.hideCursorInOverviewRuler": false,
-    "editor.scrollbar.verticalScrollbarSize": 12,
+    "editor.scrollbar.verticalScrollbarSize": 10,
     "problems.showCurrentInStatus": true,
     "[latex]": {
         "editor.defaultFormatter": "nickfode.latex-formatter"
@@ -77,42 +74,57 @@
     "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#000000",
     "workbench.iconTheme": "material-icon-theme",
     "notebook.output.scrolling": true,
-    "workbench.colorTheme": "Matchalk",
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.configFile": "~/.ssh/config",
+    "remote.SSH.connectTimeout": 60,
+    "workbench.startupEditor": "none",
+    "remote.SSH.remotePlatform": {
+        "ieng6.ucsd.edu": "linux"
+    },
     "haskell.manageHLS": "GHCup",
     "apc.stylesheet": {
-        ".editor-group-watermark > .letterpress": "background-image: url(https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png) !important; width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #222); margin-bottom: 2rem;",
-        ".title-actions": "display: none !important",
+        // ".editor-group-watermark > .letterpress": "background-image: url(https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png) !important; width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #222); margin-bottom: 2rem;",
+        ".editor-group-watermark > .letterpress": "width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #FFFFFF); margin-bottom: 2rem;",
+        ".editor-group-container.editor-group-top.active": "background: #00000040 !important",
+        // ".title-actions": "display: none !important",
         ".sidebar .title-label": "visibility: hidden; padding: 0 !important", // Hide the title of the sidebar
         ".sidebar": "padding: 0 !important; border: none !important",
+        ".monaco-list .monaco-list-rows": "background: #00000000 !important",
+        ".monaco-scrollable-element": "background: #00000000 !important",
+        ".title.tabs.show-file-icons": "background: #000000B0 !important",
+        ".tab.close-action-off.sizing-fit.has-icon.tab-border-bottom.tab-border-top": "background: #00000000 !important", // tab bar
+        ".part.panel.basepanel.bottom.pane-composite-part": "background: #000000D5 !important",
+        "xterm-viewport": "background: #00000000 !important",
+        ".terminal-outer-container": "background: #00000000 !important",
+        ".terminal.xterm": "background: #00000000 !important",
     },
     "apc.font.family": "Berkeley Mono",
     "apc.monospace.font.family": "Berkeley Mono",
-    "workbench.activityBar.location": "top",
     "window.titleBarStyle": "native",
     "apc.electron": {
-      "titleBarStyle": "hiddenInset",
+        "titleBarStyle": "hidden",
+        "transparent": true,
+        "backgroundColor": "#00000000"
     },
     "apc.activityBar": {
-      "size": 50,
-      "itemSize": 30,
-      "itemMargin": 0,
-      "position": "bottom"
+        "size": 30,
+        "itemSize": 30,
+        "itemMargin": 0,
+        "position": "bottom"
     },
     "apc.statusBar": {
-        "position": "editor-top",
+        "position": "top",
         "height": 22,
     },
     "apc.listRow": {
         "lists": [
-          "explorer-folders-view",
-          "quick-input-list",
-          "results",
+            "explorer-folders-view",
+            "quick-input-list",
+            "results",
         ],
         "height": 20, // changes how tall the list items in file explorer
     },
-    "window.customTitleBarVisibility": "never",
-    "workbench.statusBar.visible": true,
-    "workbench.sideBar.location": "left",
     "window.density.editorTabHeight": "compact",
     "animations.Install-Method": "Apc Customize UI++",
     "apc.imports": [
@@ -124,4 +136,26 @@
     },
     "animations.Scrolling": "None",
     "animations.Tabs": "None",
+    "workbench.activityBar.location": "top",
+    "workbench.sideBar.location": "left",
+    "redhat.telemetry.enabled": false,
+    "workbench.colorTheme": "Barbie Theme",
+    "workbench.colorCustomizations": {
+        "editor.background": "#00000050", 
+        "sideBar.background": "#000000D0",
+        "editorGutter.background": "#00000050",
+        "terminal.background": "#00000030",
+    },
+    "workbench.statusBar.visible": false,
+    "update.mode": "manual",
+    "animations.Active": "Indent",
+    "animations.Command-Palette": "Slide",
+    "window.customTitleBarVisibility": "never",
+    "terminal.integrated.tabs.location": "left",
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.showActions": "always",
+    "terminal.integrated.smoothScrolling": true,
+    "terminal.explorerKind": "both",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.tabs.hideCondition": "never",
 }

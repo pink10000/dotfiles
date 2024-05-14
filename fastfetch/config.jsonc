@@ -3,11 +3,11 @@
   "display": {
     "separator": " "
   },
-  "logo": {
-    "source": "~/Pictures/archlinux.png",
-    "type": "kitty",
-    "width": 30
-  },
+  // "logo": {
+  //   "source": "~/Pictures/iso.png",
+  //   "type": "kitty",
+  //   "width": 30
+  // },
   "modules": [
     // "title",
     {
