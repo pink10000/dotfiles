@@ -27,6 +27,11 @@
             :value {round(EWW_CPU.avg, 1)}
             :onchange ""
         )
+        (metric
+            :label "BAT"
+            :value {battery-capacity}
+            :onchange ""
+        )
     )
 )
 
@@ -34,16 +39,16 @@
     (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 5
         (button
             :onclick "eww close notification-frame"
-            (box (label :text "clear notifs"))
+            (box (label :text ""))
         )
         (separator)
         (microph)
         (separator)
         (volum)
-        (separator)
+        ; (separator)
         
-        (separator)
-        (battery)
+        ; (separator)
+        ; (battery)
         (separator)
         (_network 
             :strength net

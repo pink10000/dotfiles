@@ -5,7 +5,8 @@
         "diffEditor.ignoreTrimWhitespace": false
     },
     "[ini]": {},
-    "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
+    // berkeley mono fix later
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
     "editor.minimap.enabled": false,
     //"editor.renderWhitespace": "all",
     "latex-workshop.latex.clean.subfolder.enabled": true,
@@ -41,7 +42,7 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.smoothScrolling": true,
     "editor.wordWrap": "on",
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.stickyScroll.enabled": false,
     "workbench.layoutControl.enabled": false,
