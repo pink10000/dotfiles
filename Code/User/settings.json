@@ -6,7 +6,7 @@
     },
     "[ini]": {},
     // berkeley mono fix later
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
+    "editor.fontFamily": "'Berkeley Mono', 'Droid Sans Mono', 'monospace', 'LiterationMono Nerd Font Propo'",
     "editor.minimap.enabled": false,
     //"editor.renderWhitespace": "all",
     "latex-workshop.latex.clean.subfolder.enabled": true,
@@ -73,6 +73,7 @@
     "latex-workshop.view.pdf.color.dark.pageBorderColor": "#000000",
     "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#000000",
     "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#000000",
+    "latex-workshop.view.pdf.invert": 0.92,
     "workbench.iconTheme": "material-icon-theme",
     "notebook.output.scrolling": true,
     "remote.SSH.showLoginTerminal": true,

@@ -1,0 +1,37 @@
+; From https://github.com/kris-chin/.dotfiles/commit/f4d457f0fdc5ed81ffb2165a4914d8ddc15b5211#diff-f175e718b5a28f1339a6db515ab9e16dfe09e1f3ab029ab2aa99392811c880f6 
+
+(defwidget Spotify []
+    (_spotify 
+        :artistname "${_spotify_data.artistname}"
+        :songtitle "${_spotify_data.songtitle}"
+        :albumtitle "${_spotify_data.albumtitle}"
+        :artworkpath "${_spotify_data.filepath}")
+)
+
+(defwidget _spotify [artistname songtitle albumtitle artworkpath]
+    (box :space-evenly false :spacing 8
+        (box :valign "center"
+            (image :image-height 20
+                :image-width 20
+                :path "${artworkpath}"
+            )
+        )
+        ;;TODO: make this look nice
+        (box :space-evenly false
+            :orientation "h"
+            :valign "center"
+            (label :text "${artistname} - ${songtitle}")
+            (label :text "${_spotify_poll}")
+        )
+    )
+)
+
+(deflisten _spotify_data 
+    :initial "N/A"
+    "tail -f /tmp/spotifyd_watch"
+)
+
+(defpoll _spotify_poll
+    :interval "5s"
+    "spotify/spotify-data.sh &"
+)

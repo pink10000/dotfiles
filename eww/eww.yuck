@@ -17,6 +17,8 @@
 
 (include "/home/py/.config/eww/notifications/notif.yuck")
 
+(include "/home/py/.config/eww/spotify/spotify.yuck")
+
 
 ;; picture of cat or something
 ;; pc temp

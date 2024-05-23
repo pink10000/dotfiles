@@ -32,6 +32,7 @@
             :value {battery-capacity}
             :onchange ""
         )
+        (Spotify)
     )
 )
 
@@ -166,6 +167,7 @@
         )            
     )
 )
+
 (defpoll battery			:interval "1s"	"scripts/battery.sh icon &")
 (defpoll battery-capacity	:interval "1s"	"scripts/battery.sh percent &")
 

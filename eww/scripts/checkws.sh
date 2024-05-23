@@ -25,23 +25,20 @@ export f"$num"="$num"
 
 echo 	"(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
           (box	:class \"workspace\"	:orientation \"h\" :space-evenly \"false\" 	\
-              (button :onclick \"scripts/dispatch.sh 1\" :class \"w0$o1$f1\" \"1\") \
-              (button :onclick \"scripts/dispatch.sh 2\" :class \"w0$o2$f2\" \"2\") \
-              (button :onclick \"scripts/dispatch.sh 3\" :class \"w0$o3$f3\" \"3\") \
-              (button :onclick \"scripts/dispatch.sh 4\" :class \"w0$o4$f4\" \"4\") \
-              (button :onclick \"scripts/dispatch.sh 5\" :class \"w0$o5$f5\" \"5\") \
-              (button :onclick \"scripts/dispatch.sh 6\" :class \"w0$o6$f6\" \"6\") \
-              (button :onclick \"scripts/dispatch.sh 7\" :class \"w0$o7$f7\" \"7\") \
-              (button :onclick \"scripts/dispatch.sh 8\" :class \"w0$o8$f8\" \"8\") \
-              (button :onclick \"scripts/dispatch.sh 9\" :class \"w0$o9$f9\" \"9\") \
+              (button :onclick \"scripts/dispatch.sh 1\" :class \"w0$o1$f1\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 2\" :class \"w0$o2$f2\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 3\" :class \"w0$o3$f3\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 4\" :class \"w0$o4$f4\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 5\" :class \"w0$o5$f5\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 6\" :class \"w0$o6$f6\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 7\" :class \"w0$o7$f7\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 8\" :class \"w0$o8$f8\" \"\") \
+              (button :onclick \"scripts/dispatch.sh 9\" :class \"w0$o9$f9\" \"\") \
           )\
         )"
 }
 
 workspaces $1 
-socat -u - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock | while read -r; do 
-workspaces $1;
+socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock | while read -r; do 
+workspaces $1
 done
-
-#!/bin/sh
-# socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
