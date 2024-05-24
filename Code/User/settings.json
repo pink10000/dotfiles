@@ -95,7 +95,8 @@
         ".monaco-list .monaco-list-rows": "background: #00000000 !important",
         ".monaco-scrollable-element": "background: #00000000 !important",
         // Tab Bar
-        ".title.tabs.show-file-icons": "background: #000000B0 !important",
+        ".title.tabs.show-file-icons": "background: #00000000 !important",
+        ".tabs-and-actions-container": "background: #000000A9 !important",
         ".tab.close-action-off.sizing-fit.has-icon.tab-border-bottom.tab-border-top": "background: #00000000 !important; font-weight: bold !important", // tab bar
         // ".label-name": "font-weight: bold !important",
         ".tab.close-action-off.sizing-fit.has-icon": "background: #00000000 !important",
