@@ -70,7 +70,7 @@ mode = scientific
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
 method = pulse
-# isource = alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1/__source
+# source = alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source
 
 ; method = pipewire
 ; source = auto
@@ -183,14 +183,14 @@ continuous_rendering = 1
 # You can define as many as 8 different colors. They range from bottom to top of screen
 gradient = 1 
 gradient_count = 8
-gradient_color_1 = "#a1a0a1"
-gradient_color_2 = "#e6e5e7"
-gradient_color_3 = "#9AA7E2"
-gradient_color_4 = "#D1BFB9"
-gradient_color_5 = "#5B9CE0"
-gradient_color_6 = "#A14BBF"
-gradient_color_7 = "#6064E0"
-gradient_color_8 = "#4136BC"
+gradient_color_1 = "#748c83"
+gradient_color_2 = "#a7c8bc"
+gradient_color_3 = "#725592"
+gradient_color_4 = "#B09675"
+gradient_color_5 = "#648E79"
+gradient_color_6 = "#33A75D"
+gradient_color_7 = "#98656A"
+gradient_color_8 = "#B2474F"
 
 
 

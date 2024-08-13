@@ -1,4 +1,3 @@
-
 function update
 	if [ (count $argv) -ne 1 ]
 		echo "Wrong usage. Usage: update <image_directory>"
@@ -48,7 +47,14 @@ function vscan
 	sttt scanline --scanline-reverse true --scanline-scale-width 1.1 -d 0.3 --scanline-vertical true -l -r;
 end
 
+function rec
+	python ~/Documents/vscrp/recent.py
+	hyprctl dispatch closewindow kitty-rec
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+# opam configuration
+source /home/py/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
