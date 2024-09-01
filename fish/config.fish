@@ -20,6 +20,7 @@ function update
 
 	wal_cava -c ~/.config/cava/config -G 8 -x
 	eww reload
+  echo "Ugly? use this to generate a better palette: https://colordesigner.io/color-palette-from-image"
 end
 
 function fish_greeting
