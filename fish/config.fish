@@ -20,7 +20,7 @@ function update
 end
 
 function fish_greeting
-	sttt scanline -d 0.2 --scanline-vertical False --scanline-reverse true --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.2 -r -b 0.04 0.96 96 0.04
+	sttt scanline -d 0.2 --scanline-vertical False --scanline-reverse true --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.2 -r
 	sttt scanline -d 0.2 --scanline-vertical True --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.1 -r
 end
 
