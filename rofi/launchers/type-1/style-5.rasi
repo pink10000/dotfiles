@@ -21,7 +21,6 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
 
 * {
     border-colour:               var(selected);
@@ -47,6 +46,7 @@ configuration {
     alternate-urgent-foreground: var(background);
     alternate-active-background: var(active);
     alternate-active-foreground: var(background);
+    font:                        "BerkeleyMono 16";
 }
 
 /*****----- Main Window -----*****/

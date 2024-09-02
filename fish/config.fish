@@ -8,17 +8,13 @@ function update
 
 	swww img $img_dir # --no-resize
 
-	# Run wal with the provided image directory
-	wal -i $img_dir
+	# Run wallust with the provided image directory
+	wallust run $img_dir
 	echo $img_dir
 	# Update polybar widgets and other things
 	sleep 0.1
-	# i3-msg restart  
 	
-	# Run spicetify update
-	#spicetify apply
-
-	wal_cava -c ~/.config/cava/config -G 8 -x
+    wal_cava -c ~/.config/cava/config -G 8 -x
 	eww reload
   echo "Ugly? use this to generate a better palette: https://colordesigner.io/color-palette-from-image"
 end
