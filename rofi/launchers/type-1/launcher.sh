@@ -13,7 +13,7 @@
 
 dir="$HOME/.config/rofi/launchers/type-1"
 theme='style-5'
-
+echo ${dir}/${theme}.rasi
 ## Run
 rofi \
     -show drun \
