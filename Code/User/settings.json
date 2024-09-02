@@ -159,7 +159,7 @@
     "terminal.integrated.tabs.hideCondition": "never",
     "github.copilot.editor.enableAutoCompletions": true,
     "extensions.autoUpdate": false,
-    "workbench.colorTheme": "Matchalk",
+    "workbench.colorTheme": "Barbie Theme",
     "extensions.ignoreRecommendations": true,
     "github.copilot.enable": {
         "*": false,
@@ -178,4 +178,6 @@
         "**/.glob": true
     },
     "workbench.statusBar.visible": false,
+    "fonted.font": "BerkeleyMono",
+    "workbench.list.smoothScrolling": true,
 }

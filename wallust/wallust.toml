@@ -14,3 +14,7 @@ kitty.target = "~/.config/kitty/kitty.conf"
 
 eww.template = "colors.scss"
 eww.target = "~/.config/eww/colors.scss"
+
+# Credit: https://github.com/dlasagno/vscode-wal-theme/issues/23
+wal.template = "pywal-colors"
+wal.target = "~/.cache/wal/colors"
