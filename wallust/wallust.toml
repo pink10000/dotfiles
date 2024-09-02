@@ -1,0 +1,9 @@
+backend = "resized"
+color_space = "lab"
+
+threshold = 20
+
+palette = "dark"
+
+[templates]
+Hyprland = { template = 'colors-hyprland', target = '~/.config/hypr/hypr-colors.conf' }

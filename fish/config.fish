@@ -14,7 +14,6 @@ function update
 	# Update polybar widgets and other things
 	sleep 0.1
 	
-    wal_cava -c ~/.config/cava/config -G 8 -x
 	eww reload
   echo "Ugly? use this to generate a better palette: https://colordesigner.io/color-palette-from-image"
 end
