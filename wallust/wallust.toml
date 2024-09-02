@@ -11,3 +11,6 @@ hypr.target = "~/.config/hypr/hypr-colors.conf"
 
 kitty.template = "colors-kitty"
 kitty.target = "~/.config/kitty/kitty.conf"
+
+eww.template = "colors.scss"
+eww.target = "~/.config/eww/colors.scss"
