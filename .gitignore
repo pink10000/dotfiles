@@ -2,7 +2,6 @@
 !.gitignore
 !README.md
 
-
 !/cava/
 !/nvim/
 !/wal/
@@ -22,3 +21,6 @@
 !/Code/User/
 !/Code/User/settings.json
 !/Code/User/keybindings.json
+
+# for wallust colors
+**/*-colors.*
