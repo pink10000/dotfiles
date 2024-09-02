@@ -44,8 +44,7 @@ function vscan
 end
 
 function rec
-	python ~/Documents/vscrp/recent.py
-	hyprctl dispatch closewindow kitty-rec
+	~/.config/hypr/vscrp.sh
 end
 
 if status is-interactive
