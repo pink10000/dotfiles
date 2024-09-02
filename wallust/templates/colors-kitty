@@ -16,8 +16,8 @@ scrollback_lines 4000
 window_padding_width    10
 window_margin_width     10
 
-selection_foreground    {{foreground}}
-selection_background    {{background}}
+selection_foreground    {{background}}
+selection_background    {{foreground}}
 
 foreground         {{foreground}}
 background         {{background}}
