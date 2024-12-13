@@ -1,9 +1,11 @@
 backend = "resized"
 color_space = "labmixed"
 
-threshold = 10
+# threshold = 10
 
-palette = "dark"
+palette = "dark16"
+check_contrast = true
+saturate = 100
 
 [templates]
 hypr.template = "colors-hyprland" 

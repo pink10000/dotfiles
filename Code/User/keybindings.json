@@ -10,5 +10,40 @@
               "workbench.action.toggleSidebarVisibility"
             ]
           }
+    },
+    {
+      "key": "ctrl+i",
+      "command": "-workbench.action.chat.startVoiceChat",
+      "when": "chatIsEnabled && hasSpeechProvider && inChatInput && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress && !terminalChatActiveRequest || chatIsEnabled && hasSpeechProvider && inlineChatFocused && !chatSessionRequestInProgress && !editorFocus && !notebookEditorFocused && !scopedVoiceChatGettingReady && !speechToTextInProgress && !terminalChatActiveRequest"
+    },
+    {
+      "key": "ctrl+i",
+      "command": "-workbench.action.chat.stopListeningAndSubmit",
+      "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+    },
+    {
+      "key": "ctrl+i",
+      "command": "-workbench.action.terminal.chat.focusInput",
+      "when": "terminalChatFocus && !inlineChatFocused"
+    },
+    {
+      "key": "ctrl+i",
+      "command": "-editor.action.triggerSuggest",
+      "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+    },
+    {
+      "key": "ctrl+i",
+      "command": "inlineChat.start",
+      "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+      "key": "ctrl+k i",
+      "command": "-inlineChat.start",
+      "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+    },
+    {
+      "key": "ctrl+i",
+      "command": "-inlineChat.holdForSpeech",
+      "when": "hasSpeechProvider && inlineChatHasProvider && inlineChatVisible && textInputFocus"
     }
 ]
