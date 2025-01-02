@@ -14,7 +14,7 @@
       "type": "custom",
       "key": "┣━━━━━━━━━━━━━━━━ Metaphysical Constructs ━━━━━━━━━━━━━┫",
       "format": " ",
-      "keyColor": "bright_magenta",
+      "keyColor": "green",
     },
     {
       "type": "host",
@@ -81,6 +81,10 @@
       "key": "  Packages    ┃"
     },
     {
+      "type": "disk",
+      "key": "  Disk        ┃"
+    },
+    {
       "type": "terminalfont",
       "key": " 󰛖 Font        ┃"
     },
@@ -97,7 +101,7 @@
     "break",
     {
       "type": "colors",
-      "symbol": "circle"
+      "symbol": "triangle"
     },
    
     // "wmtheme",

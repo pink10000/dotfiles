@@ -116,8 +116,8 @@
         ".split-view-view visible": "display: none !important",
         ".vscode-dark": "background: #000000D5 !important",
     },
-    "apc.font.family": "Berkeley Mono",
-    "apc.monospace.font.family": "Berkeley Mono",
+    "apc.font.family": "JetBrainsMono Nerd Font",
+    "apc.monospace.font.family": "JetBrainsMono Nerd Font",
     "window.titleBarStyle": "native",
     "apc.electron": {
         "titleBarStyle": "hidden",
@@ -165,13 +165,16 @@
     "extensions.autoUpdate": false,
     "extensions.ignoreRecommendations": true,
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
         "scminput": false
     },
     "terminal.integrated.scrollback": 10000,
-    "vscoq.path": "/home/py/.opam/4.14.1/bin/vscoqtop",
+    "vscoq.path": "/home/py/.opam/coq-plugin/bin/vscoqtop",
+    "vscoq.args": [
+        "-I", "/home/py/coq-rango/_build/default/src",
+    ],
     "files.autoSave": "afterDelay",
     "files.exclude": {
         "**.vo": true,

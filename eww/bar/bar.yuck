@@ -32,7 +32,7 @@
             :value {battery-capacity}
             :onchange ""
         )
-        (Spotify)
+    ;    (Spotify)
     )
 )
 
@@ -77,9 +77,11 @@
 
 (defwidget volum []
 	(eventbox
-        :onscroll       "pulseaudio-control --volume-max 150 {}"
+        :onscroll       "pactl set-sink-volume @DEFAULT_SINK@ $( 
+            [[ '{}' = 'up' ]] && echo '+2%' || echo '-2%' )"
         :onrightclick   "scripts/popup.sh audio &"
-        :onclick        "pulseaudio-control togmute; eww update output_muted=${output_muted ? false : true}" 
+        :onclick        "pactl set-sink-mute @DEFAULT_SINK@ toggle; 
+                        eww update output_muted=${output_muted ? false : true}" 
         :class {output_muted ? "icon-muted" : ""}
         (box 
             :space-evenly false
@@ -93,8 +95,10 @@
 )
 (defwidget microph []
     (eventbox
-        :onscroll       "pulseaudio-control --node-type input --volume-max 150 {}"
-        :onclick        "pulseaudio-control --node-type input togmute; eww update input_muted=${input_muted ? false : true}"
+        :onscroll       "pactl set-source-volume @DEFAULT_SOURCE@ $( 
+            [[ '{}' = 'up' ]] && echo '+2%' || echo '-2%' )"
+        :onclick        "pactl set-source-mute @DEFAULT_SOURCE@ toggle; 
+                        eww update input_muted=${input_muted ? false : true}"
         :onrightclick   "scripts/popup.sh audio &"
         :class {input_muted ? "icon-muted" : ""}
         (box 

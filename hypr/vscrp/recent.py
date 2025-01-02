@@ -1,7 +1,6 @@
 import os
 import json
 import curses
-import signal
 import sqlite3
 import subprocess
 import threading
@@ -107,7 +106,7 @@ def open_and_exit(project_path):
     close_thread = threading.Thread(target=close_terminal_thread)
 
     open_thread.start()
-    time.sleep(1)
+    # time.sleep(1)
     close_thread.start()
 
     close_thread.join()
