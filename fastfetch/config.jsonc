@@ -86,7 +86,8 @@
     },
     {
       "type": "terminalfont",
-      "key": " 󰛖 Font        ┃"
+      "key": " 󰛖 Font        ┃",
+      "format": "{name}"
     },
     {
       "type": "uptime",

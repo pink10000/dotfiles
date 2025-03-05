@@ -18,10 +18,10 @@ function update
   echo "Ugly? use this to generate a better palette: https://colordesigner.io/color-palette-from-image"
 end
 
-function fish_greeting
-	sttt scanline -d 0.2 --scanline-vertical False --scanline-reverse true --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.2 -r
-	sttt scanline -d 0.2 --scanline-vertical True --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.1 -r
-end
+# function fish_greeting
+# 	sttt scanline -d 0.2 --scanline-vertical False --scanline-reverse true --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.2 -r
+# 	sttt scanline -d 0.2 --scanline-vertical True --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.1 -r
+# end
 
 function fish_prompt
     #set -l arrowcol green
@@ -47,9 +47,23 @@ function rec
 	~/.config/hypr/vscrp.sh
 end
 
+function p1
+  ping 1.1.1.1
+end
+
+function hotel
+  route -n 
+  open 10.0.1.0
+end
+
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
 # opam configuration
 source /home/py/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+pyenv init - fish | source
+
+# support for direnv
+direnv hook fish | source
