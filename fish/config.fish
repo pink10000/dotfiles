@@ -18,21 +18,21 @@ function update
   echo "Ugly? use this to generate a better palette: https://colordesigner.io/color-palette-from-image"
 end
 
-# function fish_greeting
+#function fish_greeting
 # 	sttt scanline -d 0.2 --scanline-vertical False --scanline-reverse true --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.2 -r
 # 	sttt scanline -d 0.2 --scanline-vertical True --scanline-width 2 --scanline-scale-width 1.1 --scanline-scale-ratio 0.1 -r
-# end
+#end
 
-function fish_prompt
-    #set -l arrowcol green
-    #set_color $textcol -b $bgcol
-	#echo -n [(whoami)]
-
-	set_color $arrowcol -b normal
-	echo -n " "(prompt_pwd) 
-	
-	echo -n "  "
-end
+#function fish_prompt
+#    #set -l arrowcol green
+#    #set_color $textcol -b $bgcol
+# #echo -n [(whoami)]
+#
+#	set_color $arrowcol -b normal
+#	echo -n " "(prompt_pwd) 
+#	
+#	echo -n "  "
+#end
 
 
 function pipes
@@ -67,3 +67,7 @@ pyenv init - fish | source
 
 # support for direnv
 direnv hook fish | source
+
+
+# mts oba api key
+set -x OBA_KEY "3c7afe29-8e40-422d-8f13-65c8605c1125"
