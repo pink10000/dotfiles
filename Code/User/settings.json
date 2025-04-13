@@ -11,6 +11,7 @@
     "latex-workshop.latex.clean.subfolder.enabled": true,
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",
+        "*.fls",
         "%DOCFILE%.bbl",
         "%DOCFILE%.blg",
         "%DOCFILE%.idx",
@@ -84,12 +85,11 @@
     "workbench.startupEditor": "none",
     "remote.SSH.remotePlatform": {
         "ieng6.ucsd.edu": "linux",
-        "192.168.15.232": "linux"
+        "192.168.15.232": "linux",
+        "dsmlp-login.ucsd.edu": "linux",
+        "vscode-dsmlp": "linux"
     },
     "haskell.manageHLS": "GHCup",
-    "apc.imports": [
-        "/home/py/.vscode/scripts/resize-quickinput-widget.js"
-    ],
     "apc.stylesheet": {
         // ".editor-group-watermark > .letterpress": "background-image: url(https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png) !important; width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #222); margin-bottom: 2rem;",
         ".editor-group-watermark > .letterpress": "width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #FFFFFF); margin-bottom: 2rem;",
@@ -114,7 +114,7 @@
         ".terminal-outer-container": "background: #00000000 !important",
         ".terminal.xterm": "background: #00000000 !important",
         ".split-view-view visible": "display: none !important",
-        ".vscode-dark": "background: #000000D5 !important",
+        // ".vscode-dark": "background: #000000D5 !important",
     },
     "apc.font.family": "JetBrainsMono Nerd Font",
     "apc.monospace.font.family": "JetBrainsMono Nerd Font",
@@ -122,7 +122,7 @@
     "apc.electron": {
         "titleBarStyle": "hidden",
         "transparent": true, 
-        "backgroundColor": "#00000000"
+        "backgroundColor": "#000000"
     },
     "apc.activityBar": {
         "size": 30,
@@ -131,7 +131,7 @@
         "position": "bottom"
     },
     "apc.statusBar": {
-        "position": "top",
+        "position": "bottom",
         "height": 22,
     },
     "apc.listRow": {
@@ -147,7 +147,7 @@
     "workbench.sideBar.location": "left",
     "redhat.telemetry.enabled": false,
     "workbench.colorCustomizations": {
-        "editor.background": "#00000040",
+        // "editor.background": "#00000040",
         "sideBar.background": "#000000C0",
         "editorGutter.background": "#00000040",
         "terminal.background": "#00000000",
@@ -181,9 +181,9 @@
         "**.vok": true,
         "**.vos": true,
         "**/.aux": true,
-        "**/.glob": true
+        "**/.glob": true,
+        "**/.fls": true,
     },
-    "workbench.statusBar.visible": false,
     "workbench.list.smoothScrolling": true,
     "vscoq.goals.auto": true,
     "vscoq.proof.mode": 1,
@@ -203,5 +203,14 @@
     ],
     "latex-workshop.view.pdf.invertMode.brightness": 1.2,
     "latex-workshop.view.pdf.invert": 0.945,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.statusBar.visible": false,
+    "markdown.preview.scrollEditorWithPreview": false,
     "workbench.colorTheme": "Barbie Theme",
+    "nrf-connect.enableTelemetry": false,
 }

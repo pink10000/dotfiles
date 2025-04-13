@@ -1,0 +1,9 @@
+window-decoration = false
+window-padding-x = 20,20
+window-padding-y = 20,20
+# bold-is-bright = true
+font-family = "JetBrainsMono Nerd Font"
+font-size = 15 
+confirm-close-surface = false
+background-opacity = 0.90
+theme = colors-ghostty

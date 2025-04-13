@@ -45,5 +45,10 @@
       "key": "ctrl+i",
       "command": "-inlineChat.holdForSpeech",
       "when": "hasSpeechProvider && inlineChatHasProvider && inlineChatVisible && textInputFocus"
+    },
+    {
+      "key": "ctrl+l",
+      "command": "-notebook.centerActiveCell",
+      "when": "notebookEditorFocused"
     }
 ]
