@@ -90,6 +90,9 @@
         "vscode-dsmlp": "linux"
     },
     "haskell.manageHLS": "GHCup",
+    // "editor.rulers": [
+    //     80,
+    // ],
     "apc.stylesheet": {
         // ".editor-group-watermark > .letterpress": "background-image: url(https://raw.githubusercontent.com/Aikoyori/ProgrammingVTuberLogos/main/VSCode/VSCode.png) !important; width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #222); margin-bottom: 2rem;",
         ".editor-group-watermark > .letterpress": "width: unset !important; height: 250px; aspect-ratio: 16/9 !important; filter: drop-shadow(5px 5px 5px #FFFFFF); margin-bottom: 2rem;",
@@ -213,4 +216,5 @@
     "markdown.preview.scrollEditorWithPreview": false,
     "workbench.colorTheme": "Barbie Theme",
     "nrf-connect.enableTelemetry": false,
+    "git.openRepositoryInParentFolders": "never",
 }

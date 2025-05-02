@@ -56,6 +56,10 @@ function hotel
   open 10.0.1.0
 end
 
+function "git adog" 
+  git log --all --decorate --oneline --graph
+end
+
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -71,3 +75,7 @@ direnv hook fish | source
 
 # mts oba api key
 set -x OBA_KEY "3c7afe29-8e40-422d-8f13-65c8605c1125"
+
+set -x AI_PROVIDER "gemini"
+set -x GEMINI_KEY "AIzaSyCrzPyrpsfdhbjBcuu0eyZTauiDou3Oc-Y"
+
