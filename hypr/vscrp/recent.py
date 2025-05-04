@@ -41,6 +41,7 @@ def filter_projects(projects, query):
 def main(stdscr):
     curses.curs_set(1)  # Show cursor
     curses.start_color()
+    curses.use_default_colors()
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
 
     projects = get_recent_projects()
