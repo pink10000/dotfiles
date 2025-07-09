@@ -201,11 +201,8 @@
     "liveshare.languages.allowGuestCommandControl": true,
     "liveshare.openSharedServers": false,
     "liveshare.publishWorkspaceInfo": true,
-    "vscode_custom_css.imports": [
-        "file:///home/py/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.4/dist/updateHandler.js"
-    ],
     "latex-workshop.view.pdf.invertMode.brightness": 1.2,
-    "latex-workshop.view.pdf.invert": 0.945,
+    // "latex-workshop.view.pdf.invert": 0.945,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -214,7 +211,8 @@
     },
     "workbench.statusBar.visible": false,
     "markdown.preview.scrollEditorWithPreview": false,
-    "workbench.colorTheme": "Barbie Theme",
     "nrf-connect.enableTelemetry": false,
     "git.openRepositoryInParentFolders": "never",
+    "wallustTheme.autoUpdate": true,
+    "workbench.colorTheme": "Wallust",
 }

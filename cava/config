@@ -183,14 +183,14 @@ continuous_rendering = 1
 # You can define as many as 8 different colors. They range from bottom to top of screen
 gradient = 1 
 gradient_count = 8
-gradient_color_1 = "#8342AD"
-gradient_color_2 = "#966490"
-gradient_color_3 = "#8A6E8D"
-gradient_color_4 = "#06AEBD"
-gradient_color_5 = "#B5A333"
-gradient_color_6 = "#F0E399"
-gradient_color_7 = "#A89F6B"
-gradient_color_8 = "#9C45D4"
+gradient_color_1 = "#FF5454"
+gradient_color_2 = "#E3C78A"
+gradient_color_3 = "#80A0FF"
+gradient_color_4 = "#CF87E8"
+gradient_color_5 = "#79DAC8"
+gradient_color_6 = "#C6C6C6"
+gradient_color_7 = "#949494"
+gradient_color_8 = "#FF5189"
 
 
 

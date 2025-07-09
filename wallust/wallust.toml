@@ -18,11 +18,15 @@ eww.template = "colors.scss"
 eww.target = "~/.config/eww/colors.scss"
 
 # Credit: https://github.com/dlasagno/vscode-wal-theme/issues/23
-wal.template = "pywal-colors"
-wal.target = "~/.cache/wal/colors"
+# wal.template = "pywal-colors"
+# wal.target = "~/.cache/wal/colors"
 
 ghostty.template = "colors-ghostty"
 ghostty.target = "~/.config/ghostty/themes/colors-ghostty"
 
 cava.template = "cava/config"
 cava.target = "~/.config/cava/config"
+
+# Credit: https://github.com/saatvik333/vscode-wallust-theme
+vscode = { src = 'vscode.json', dst = '~/.cache/wallust/colors.json' }
+vscode2 = { src = 'vscode', dst = '~/.cache/wallust/colors' }
