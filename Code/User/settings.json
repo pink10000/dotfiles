@@ -214,5 +214,5 @@
     "nrf-connect.enableTelemetry": false,
     "git.openRepositoryInParentFolders": "never",
     "wallustTheme.autoUpdate": true,
-    "workbench.colorTheme": "Wallust",
+    "workbench.colorTheme": "Barbie Theme",
 }
