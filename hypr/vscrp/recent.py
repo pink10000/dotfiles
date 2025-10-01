@@ -94,7 +94,7 @@ def main(stdscr):
             current_row = 0
 
 def open_project(project_path):
-    subprocess.call(['code', project_path])
+    subprocess.call(['code', project_path, '--enable-features=UseOzonePlatform', '--ozone-platform=wayland'])
 
 def open_and_exit(project_path):
     def open_project_thread():
