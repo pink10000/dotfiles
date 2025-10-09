@@ -36,6 +36,8 @@ def get_recent_projects():
     return project_paths
 
 def filter_projects(projects, query):
+    query = query[:-1] if query and query[-1] == ' ' else query # remove trailing space if any
+    
     return [proj for proj in projects if query.lower() in proj.lower()]
 
 def main(stdscr):

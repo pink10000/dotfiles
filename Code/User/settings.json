@@ -147,7 +147,6 @@
     },
     "window.density.editorTabHeight": "compact",
     "workbench.activityBar.location": "top",
-    "workbench.sideBar.location": "left",
     "redhat.telemetry.enabled": false,
     "workbench.colorCustomizations": {
         // "editor.background": "#00000040",
@@ -170,7 +169,7 @@
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
-        "markdown": false,
+        "markdown": true,
         "scminput": false
     },
     "terminal.integrated.scrollback": 10000,
@@ -213,6 +212,9 @@
     "markdown.preview.scrollEditorWithPreview": false,
     "nrf-connect.enableTelemetry": false,
     "git.openRepositoryInParentFolders": "never",
+    "inlineChat.lineNaturalLanguageHint": false, // this is so unbelievably dumb, why is this feature real? https://github.com/orgs/community/discussions/147492 
     "wallustTheme.autoUpdate": true,
     "workbench.colorTheme": "Barbie Theme",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "github.copilot.nextEditSuggestions.enabled": true,
 }
