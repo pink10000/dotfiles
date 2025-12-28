@@ -122,38 +122,15 @@
     "apc.font.family": "JetBrainsMono Nerd Font",
     "apc.monospace.font.family": "JetBrainsMono Nerd Font",
     "window.titleBarStyle": "native",
-    "apc.electron": {
-        "titleBarStyle": "hidden",
-        "transparent": true, 
-        "backgroundColor": "#000000"
-    },
-    "apc.activityBar": {
-        "size": 30,
-        "itemSize": 30,
-        "itemMargin": 0,
-        "position": "bottom"
-    },
-    "apc.statusBar": {
-        "position": "bottom",
-        "height": 22,
-    },
-    "apc.listRow": {
-        "lists": [
-            "explorer-folders-view",
-            "quick-input-list",
-            "results",
-        ],
-        "height": 20, // changes how tall the list items in file explorer
-    },
     "window.density.editorTabHeight": "compact",
     "workbench.activityBar.location": "top",
     "redhat.telemetry.enabled": false,
-    "workbench.colorCustomizations": {
+    // "workbench.colorCustomizations": {
         // "editor.background": "#00000040",
-        "sideBar.background": "#000000C0",
-        "editorGutter.background": "#00000040",
-        "terminal.background": "#00000000",
-    },
+        // "sideBar.background": "#000000C0",
+        // "editorGutter.background": "#00000040",
+        // "terminal.background": "#00000000",
+    // },
     "update.mode": "manual",
     "window.customTitleBarVisibility": "never",
     "terminal.integrated.tabs.location": "left",
@@ -173,10 +150,6 @@
         "scminput": false
     },
     "terminal.integrated.scrollback": 10000,
-    "vscoq.path": "/home/py/.opam/coq-plugin/bin/vscoqtop",
-    "vscoq.args": [
-        "-I", "/home/py/coq-rango/_build/default/src",
-    ],
     "files.autoSave": "afterDelay",
     "files.exclude": {
         "**.vo": true,
@@ -187,12 +160,6 @@
         "**/.fls": true,
     },
     "workbench.list.smoothScrolling": true,
-    "vscoq.goals.auto": true,
-    "vscoq.proof.mode": 1,
-    "vscoq.proof.cursor.sticky": false,
-    "vscoq.proof.block": false,
-    "vscoq.proof.workers": 4,
-    "vscoq.completion.enable": true,
     "lean4.infoview.emphasizeFirstGoal": true,
     "C_Cpp.default.cppStandard": "c++17",    
     "liveshare.allowGuestDebugControl": true,
@@ -214,7 +181,12 @@
     "git.openRepositoryInParentFolders": "never",
     "inlineChat.lineNaturalLanguageHint": false, // this is so unbelievably dumb, why is this feature real? https://github.com/orgs/community/discussions/147492 
     "wallustTheme.autoUpdate": true,
-    "workbench.colorTheme": "Barbie Theme",
+    "workbench.colorTheme": "GitHub Light Default",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "github.copilot.nextEditSuggestions.enabled": true,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "chat.tools.terminal.autoApprove": {
+        "cargo build": true,
+        "cargo run": true
+    },
 }

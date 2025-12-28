@@ -53,16 +53,7 @@ end
 
 function hotel
   route -n 
-  open 10.0.1.0
-end
-
-function "git adog" 
-  git log --all --decorate --oneline --graph
-end
-
-
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+  firefox 10.0.1.0
 end
 
 # opam configuration
@@ -72,5 +63,3 @@ pyenv init - fish | source
 # support for direnv
 direnv hook fish | source
 
-
-set -x AI_PROVIDER "gemini"
