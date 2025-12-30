@@ -181,7 +181,7 @@
     "git.openRepositoryInParentFolders": "never",
     "inlineChat.lineNaturalLanguageHint": false, // this is so unbelievably dumb, why is this feature real? https://github.com/orgs/community/discussions/147492 
     "wallustTheme.autoUpdate": true,
-    "workbench.colorTheme": "GitHub Light Default",
+    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.stickyScroll.enabled": false,
