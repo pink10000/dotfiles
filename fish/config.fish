@@ -56,6 +56,12 @@ function hotel
   firefox 10.0.1.0
 end
 
+if not set -q SSH_AUTH_SOCK
+    eval (ssh-agent -c)
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+end
+
 # opam configuration
 source /home/py/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 pyenv init - fish | source

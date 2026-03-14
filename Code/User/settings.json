@@ -87,7 +87,13 @@
         "ieng6.ucsd.edu": "linux",
         "192.168.15.232": "linux",
         "dsmlp-login.ucsd.edu": "linux",
-        "vscode-dsmlp": "linux"
+        "vscode-dsmlp": "linux",
+        "beamer.caida.org": "linux",
+        "34.83.78.138": "linux",
+        "35.230.71.137": "linux",
+        "34.82.82.72": "linux",
+        "136.117.170.230": "linux",
+        "136.109.216.178": "linux"
     },
     "haskell.manageHLS": "GHCup",
     // "editor.rulers": [
@@ -145,7 +151,7 @@
     "extensions.ignoreRecommendations": true,
     "github.copilot.enable": {
         "*": true,
-        "plaintext": false,
+        "plaintext": true,
         "markdown": true,
         "scminput": false
     },
@@ -168,7 +174,7 @@
     "liveshare.openSharedServers": false,
     "liveshare.publishWorkspaceInfo": true,
     "latex-workshop.view.pdf.invertMode.brightness": 1.2,
-    // "latex-workshop.view.pdf.invert": 0.945,
+    "latex-workshop.view.pdf.invert": 0.945,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -181,12 +187,25 @@
     "git.openRepositoryInParentFolders": "never",
     "inlineChat.lineNaturalLanguageHint": false, // this is so unbelievably dumb, why is this feature real? https://github.com/orgs/community/discussions/147492 
     "wallustTheme.autoUpdate": true,
-    "workbench.colorTheme": "GitHub Dark Default",
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.stickyScroll.enabled": false,
     "chat.tools.terminal.autoApprove": {
         "cargo build": true,
-        "cargo run": true
+        "cargo run": true,
+        "go build .": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "go": true,
+        "kubectl get": true,
+        "pdflatex": true,
+        "python": true
     },
+    "nrf-connect.sdkManager.region": "default",
+    "nrf-connect.toolchainManager.installDirectory": "/home/py/ncs",
+    "nrf-connect.toolchain.path": "/home/py/ncs/toolchains",
+    "nrf-connect.topdir": "/home/py/ncs/toolchains/v2.9.0",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorTheme": "GitHub Dark Default",
 }

@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export PYENV_ROOT:/home/py/\x2epyenv
+SETUVAR --export SSH_AGENT_PID:532179
+SETUVAR --export SSH_AUTH_SOCK:/home/py/\x2essh/agent/s\x2esAcBbXFwqU\x2eagent\x2eAPa6bjjy6W
 SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
