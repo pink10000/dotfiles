@@ -9,7 +9,7 @@
 )
 
 (defwidget _spotify [artistname songtitle albumtitle artworkpath]
-    (box :space-evenly false :spacing 8
+    (box :class "metric-box" :space-evenly false :spacing 8
         (box :valign "center"
             (image :image-height 20
                 :image-width 20

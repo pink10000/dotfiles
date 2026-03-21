@@ -3,6 +3,7 @@
 * {
     all: unset; //Unsets everything so you can style everything from scratch
     font-family: "JetBrains Mono Nerd Font";
+    font-size: 16px;
     // font-family: "Berkeley Mono Trial";
     // padding: 10;
   }
@@ -13,7 +14,8 @@ $padding: 10px;
 .bar {
     background-color: $background;
     color: $foreground;
-    padding: 1px;
+    padding: 0;
+    min-height: 30px;
 }
 
 // Styles on classes (see eww.yuck for more information)
@@ -37,14 +39,24 @@ $padding: 10px;
     border-radius: 50px;
     min-height: 7px;
     min-width: 90px;
-    margin-left: 10px;
+    // margin-left: 10px;
     // margin-right: 20px;
 }
+
+.metric-box {
+    background-color: #16111a;
+    border: 1px solid #261a2a;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin: 0;
+}
+
 .metric-label {
     all: unset;
     color: $foreground;
     border-radius: 10px;
 }
+
 // .workspaces button:hover {
     // color: #D35D6E;
 // }

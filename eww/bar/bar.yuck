@@ -1,12 +1,14 @@
 (defwidget bar []
     (centerbox :orientation "h"
+               :class "bar"
+               :height 30
         (toolbar)
         (workspaces)
         (sidestuff)
     )
 )
 (defwidget toolbar []
-    (box :class "" :orientation "h" :space-evenly false :halign "start" :spacing 10
+    (box :class "" :orientation "h" :space-evenly false :halign "start" :spacing 5 :valign "center"
         ; (button :onclick "rofi -show drun &" "")
         ; (button :onclick "vivaldi &" "")
         ; (button :onclick "discord &" "󰙯")
@@ -17,40 +19,54 @@
         ; (separator)
         ; (button :onclick "screen" "󰆞")
         ; (button :onclick "peek &" "󰵸")
-        (metric 
+        (num-metric
             :label "RAM"
-            :value {round(EWW_RAM.used_mem_perc, 1)}
-            :onchange ""
+            :icon "󰍛"
+            :value {round(EWW_RAM.used_mem_perc, 0)}
         )
-        (metric 
+        (num-metric
             :label "CPU"
-            :value {round(EWW_CPU.avg, 1)}
-            :onchange ""
+            :icon "󰻠"
+            :value {round(EWW_CPU.avg, 0)}
         )
-        (metric
-            :label "BAT"
+        (num-metric
+            :label ""
+            :icon ""
+            :value {EWW_TEMPS.CORETEMP_PACKAGE_ID_0}
+            :suffix "°C"
+        )
+        (num-metric
+            :label ""
+            :icon battery
+            :icon_class {"${battery}" == "󱐋" ? "bat-charging" : "bat" }
             :value {battery-capacity}
-            :onchange ""
         )
-    ;    (Spotify)
+        (separator)
+        (network-speed)
+    )
+)
+
+(defwidget network-speed []
+    (box :class "metric-box" :space-evenly false :spacing 4
+        (box :space-evenly false :spacing 2
+            (label :text "󰇚" :class "audio-icon")
+            (label :text "${round(EWW_NET.wlo1.NET_DOWN / 1024, 0)}K" :class "metric-label")
+        )
+        (box :space-evenly false :spacing 2
+            (label :text "󰕒" :class "audio-icon")
+            (label :text "${round(EWW_NET.wlo1.NET_UP / 1024, 0)}K" :class "metric-label")
+        )
     )
 )
 
 (defwidget sidestuff []
-    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 5
+    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :spacing 5 :valign "center"
         (button
             :onclick "eww close notification-frame"
-            (box (label :text ""))
+            (box :class "metric-box" (label :text ""))
         )
-        (separator)
         (microph)
-        (separator)
         (volum)
-        ; (separator)
-        
-        ; (separator)
-        ; (battery)
-        (separator)
         (_network 
             :strength net
             :excellent "󰤨"
@@ -59,8 +75,8 @@
             :slow "󰤟"
             :offline "󰤮"
         )
-        (separator)
         (box
+            :class "metric-box"
             :tooltip "${fulldate['month']} ${fulldate['day']}, ${fulldate['year']}"
             (label :class "metric-label" :text "${fulldate['hour']}:${fulldate['minute']} ${fulldate['ap']}")
         )
@@ -72,7 +88,9 @@
 )
   
 (defwidget workspaces []
-    (literal :content workspace)
+    (box :valign "center"
+        (literal :content workspace)
+    )
 )
 
 (defwidget volum []
@@ -84,12 +102,11 @@
                         eww update output_muted=${output_muted ? false : true}" 
         :class {output_muted ? "icon-muted" : ""}
         (box 
+            :class "metric-box"
             :space-evenly false
-            :spacing 0
-            (label :text '${output_muted ? "󰕿": "󰕾"} ${volume['output']}% ')
-            (label :text "-")
+            :spacing 5
+            (label :class "metric-label" :text '${output_muted ? "󰕿": "󰕾"} ${volume['output']}% ')
             (label :class "audio-icon" :text "${pavu['output']}")
-            (label :text "-")
         )
     )
 )
@@ -102,12 +119,11 @@
         :onrightclick   "scripts/popup.sh audio &"
         :class {input_muted ? "icon-muted" : ""}
         (box 
+            :class "metric-box"
             :space-evenly false
-            :spacing 0
-            (label :text '${input_muted ? "": ""} ${volume['input']}% ')
-            (label :text "-")
+            :spacing 5
+            (label :class "metric-label" :text '${input_muted ? "": ""} ${volume['input']}% ')
             (label :class "audio-icon" :text "${pavu['input']}")
-            (label :text "-")
         )
     )
 )
@@ -122,10 +138,11 @@
 (defwidget metric [label value onchange]
     (box 
         :orientation "h" 
-        :class "metric"
+        :class "metric-box"
         :space-evenly false
         :tooltip "${value}%"
-        :width 100
+        :width 120
+        :spacing 10
         (box :class "metric-label" label)
         (scale 
             :min 0
@@ -137,21 +154,34 @@
     )
 )
 
+(defwidget num-metric [label value ?suffix ?icon ?icon_class]
+    (box 
+        :class "metric-box" 
+        :space-evenly false 
+        :spacing 2
+        (label :visible {label != ""} :class "metric-label" :text label)
+        (label :class {icon_class ?: "metric-label"} :text icon)
+        (label :class "metric-label" :text "${value}${suffix ?: '%'}")
+    )
+)
+
 (defwidget _network [strength offline excellent good okay slow]
     (button
         :onclick "scripts/popup.sh wifi &"
         (box   
-            :class "net-box"
+            :class "metric-box"
             :space-evenly false
             :spacing 8
             :tooltip "${network_name}(${net})"
             (label 
+                :class "metric-label"
                 :text {strength == "N/A" ? offline 
                 : strength < 26 ? slow 
                 : strength < 51 ? okay 
                 : strength < 76 ? good 
                 : excellent}
             )
+            (label :class "metric-label" :text "${net}%")
         )
     )
 )
@@ -196,7 +226,7 @@
     :geometry (geometry :x "0%"
                         :y "0%"
                         :width "100%"
-                        :height "10px"
+                        :height "30px"
                         :anchor "top center")
     :reserve (struts :side "top" :distance "4%")
     :exclusive true
