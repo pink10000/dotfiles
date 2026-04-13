@@ -174,7 +174,7 @@
     "liveshare.openSharedServers": false,
     "liveshare.publishWorkspaceInfo": true,
     "latex-workshop.view.pdf.invertMode.brightness": 1.2,
-    // "latex-workshop.view.pdf.invert": 0.945,
+    "latex-workshop.view.pdf.invert": 0.945,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
