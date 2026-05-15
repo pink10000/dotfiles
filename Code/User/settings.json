@@ -45,6 +45,7 @@
     "editor.fontLigatures": false,
     "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.stickyScroll.enabled": false,
+    "editor.glyphMargin": false, // i dont use breakpoints
     "workbench.layoutControl.enabled": false,
     "window.title": "${dirty}${activeEditorShort}",
     "workbench.editor.tabActionCloseVisibility": false,
@@ -222,5 +223,5 @@
     "nrf-connect.toolchain.path": "/home/py/ncs/toolchains",
     "nrf-connect.topdir": "/home/py/ncs/toolchains/v2.9.0",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.colorTheme": "oxocarbon OLED",
+    "workbench.colorTheme": "oxocarbon",
 }

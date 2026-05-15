@@ -50,5 +50,15 @@
       "key": "ctrl+l",
       "command": "-notebook.centerActiveCell",
       "when": "notebookEditorFocused"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+tab",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
     }
 ]
