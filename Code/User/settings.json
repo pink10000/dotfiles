@@ -223,5 +223,5 @@
     "nrf-connect.toolchain.path": "/home/py/ncs/toolchains",
     "nrf-connect.topdir": "/home/py/ncs/toolchains/v2.9.0",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.colorTheme": "oxocarbon",
+    "workbench.colorTheme": "oxocarbon OLED",
 }

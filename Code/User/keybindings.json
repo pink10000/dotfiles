@@ -54,11 +54,11 @@
     {
         "key": "ctrl+tab",
         "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus"
+        "when": "terminalFocus && !terminalEditorFocus"
     },
     {
         "key": "ctrl+alt+tab",
         "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus"
+        "when": "terminalFocus && !terminalEditorFocus"
     }
 ]
