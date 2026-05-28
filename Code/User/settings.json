@@ -57,7 +57,8 @@
     "editor.scrollbar.verticalScrollbarSize": 10,
     "problems.showCurrentInStatus": true,
     "files.associations": {
-        "*.rmd": "markdown"
+        "*.rmd": "markdown",
+        "*.s": "asm-intel-x86-generic"
     },
     "git.autofetch": true,
     "jupyter.askForKernelRestart": false,
@@ -165,7 +166,7 @@
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
-        "markdown": true,
+        "markdown": false,
         "scminput": false
     },
     "terminal.integrated.scrollback": 10000,
@@ -223,5 +224,8 @@
     "nrf-connect.toolchain.path": "/home/py/ncs/toolchains",
     "nrf-connect.topdir": "/home/py/ncs/toolchains/v2.9.0",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.colorTheme": "oxocarbon OLED",
+    "workbench.colorTheme": "oxocarbon",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
