@@ -139,6 +139,8 @@
     "workbench.colorCustomizations": {
         "[oxocarbon OLED]": {
             "editorWarning.foreground": "#42be65",
+            "editor.selectionBackground": "#22c55e55",
+            "editor.selectionHighlightBorder": "#42be65"
         },
     },
     "editor.semanticTokenColorCustomizations": {
@@ -164,9 +166,9 @@
     "extensions.autoUpdate": false,
     "extensions.ignoreRecommendations": true,
     "github.copilot.enable": {
-        "*": true,
-        "plaintext": true,
-        "markdown": false,
+        "*": false,
+        "plaintext": false,
+        "markdown": true,
         "scminput": false
     },
     "terminal.integrated.scrollback": 10000,
@@ -224,8 +226,9 @@
     "nrf-connect.toolchain.path": "/home/py/ncs/toolchains",
     "nrf-connect.topdir": "/home/py/ncs/toolchains/v2.9.0",
     "diffEditor.ignoreTrimWhitespace": false,
-    "workbench.colorTheme": "oxocarbon",
+    "workbench.colorTheme": "oxocarbon OLED",
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "csv.enabled": true,
 }
