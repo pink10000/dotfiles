@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-vol=`amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1`
+vol=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | grep -oE '[0-9]+%' | head -n 1 | tr -d '%')
+if [ -z "$vol" ]; then
+    vol=0
+fi
 
 if [[ ${vol} -ge 80 ]]; then
     echo "󰕾"

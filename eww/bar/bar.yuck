@@ -50,11 +50,11 @@
     (box :class "metric-box" :space-evenly false :spacing 4
         (box :space-evenly false :spacing 2
             (label :text "󰇚" :class "audio-icon")
-            (label :text "${round(EWW_NET.wlo1.NET_DOWN / 1024, 0)}K" :class "metric-label")
+            (label :text "${netspeed.down}K" :class "metric-label")
         )
         (box :space-evenly false :spacing 2
             (label :text "󰕒" :class "audio-icon")
-            (label :text "${round(EWW_NET.wlo1.NET_UP / 1024, 0)}K" :class "metric-label")
+            (label :text "${netspeed.up}K" :class "metric-label")
         )
     )
 )
@@ -105,7 +105,7 @@
             :class "metric-box"
             :space-evenly false
             :spacing 5
-            (label :class "metric-label" :text '${output_muted ? "󰕿": "󰕾"} ${volume['output']}% ')
+            (label :class "metric-label" :text '${output_muted ? "󰕿": "󰕾"} ${volume['output']}%')
             (label :class "audio-icon" :text "${pavu['output']}")
         )
     )
@@ -122,7 +122,7 @@
             :class "metric-box"
             :space-evenly false
             :spacing 5
-            (label :class "metric-label" :text '${input_muted ? "": ""} ${volume['input']}% ')
+            (label :class "metric-label" :text '${input_muted ? "": ""} ${volume['input']}%')
             (label :class "audio-icon" :text "${pavu['input']}")
         )
     )
@@ -131,6 +131,10 @@
 (defpoll pavu :interval "1s" 
     :initial '{"output":"o","input":"i"}'
     "bash scripts/channel.sh &"
+)
+(defpoll netspeed :interval "1s"
+    :initial '{"down":"0","up":"0"}'
+    "scripts/netspeed.sh &"
 )
 (defvar output_muted false)
 (defvar input_muted false)
@@ -209,7 +213,7 @@
     (label :text "|")
 )
 
-(defpoll net :interval "100s"
+(defpoll net :interval "10s"
   :initial `N/A`
   `nmcli -t -f SIGNAL,ACTIVE device wifi \
     | awk -F':' '{if($2=="yes")print$1}'`

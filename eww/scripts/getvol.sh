@@ -1,6 +1,13 @@
 #!/bin/sh
 
-output=`amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1`
-input=`amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1`
+output=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | grep -oE '[0-9]+%' | head -n 1 | tr -d '%')
+if [ -z "$output" ]; then
+    output="0"
+fi
 
-echo {\"output\":\"${output}\", \"input\":\"${input}\"}
+input=$(pactl get-source-volume @DEFAULT_SOURCE@ 2>/dev/null | grep -oE '[0-9]+%' | head -n 1 | tr -d '%')
+if [ -z "$input" ]; then
+    input="0"
+fi
+
+echo "{\"output\":\"${output}\", \"input\":\"${input}\"}"

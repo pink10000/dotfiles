@@ -3,36 +3,46 @@ import json
 import curses
 import sqlite3
 import subprocess
-import threading
-import time
+from urllib.parse import unquote
 
 def get_recent_projects():
     home = os.path.expanduser('~')
-    path = os.path.join(home, '.config', 'Code', 'User', 'globalStorage', 'state.vscdb')
+    possible_paths = [
+        os.path.join(home, '.vscode-shared', 'sharedStorage', 'state.vscdb'),
+        os.path.join(home, '.vscode-oss-shared', 'sharedStorage', 'state.vscdb'),
+        os.path.join(home, '.config', 'Code', 'User', 'globalStorage', 'state.vscdb'),
+        os.path.join(home, '.config', 'VSCodium', 'User', 'globalStorage', 'state.vscdb'),
+    ]
 
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"Could not find the VSCode state file at {path}")
-
-    conn = sqlite3.connect(path)
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT value FROM ItemTable WHERE key = 'history.recentlyOpenedPathsList'")
-    row = cursor.fetchone()
-
-    if row is None:
-        return []
-
-    data = json.loads(row[0])
-    projects = data.get('entries', [])
     project_paths = []
+    for path in possible_paths:
+        if not os.path.exists(path):
+            continue
+        try:
+            conn = sqlite3.connect(path)
+            cursor = conn.cursor()
+            cursor.execute("SELECT value FROM ItemTable WHERE key = 'history.recentlyOpenedPathsList'")
+            row = cursor.fetchone()
+            conn.close()
 
-    for entry in projects:
-        if 'folderUri' in entry:
-            project_paths.append(entry['folderUri'].replace('file://', ''))
-        elif 'fileUri' in entry:
-            project_paths.append(entry['fileUri'].replace('file://', ''))
+            if row is not None:
+                data = json.loads(row[0])
+                projects = data.get('entries', [])
+                for entry in projects:
+                    path_str = None
+                    if 'folderUri' in entry:
+                        path_str = entry['folderUri']
+                    elif 'fileUri' in entry:
+                        path_str = entry['fileUri']
+                    
+                    if path_str:
+                        clean_path = path_str.replace('file://', '')
+                        clean_path = unquote(clean_path)
+                        if clean_path not in project_paths:
+                            project_paths.append(clean_path)
+        except Exception:
+            pass
 
-    conn.close()
     return project_paths
 
 def filter_projects(projects, query):
@@ -41,10 +51,22 @@ def filter_projects(projects, query):
     return [proj for proj in projects if query.lower() in proj.lower()]
 
 def main(stdscr):
-    curses.curs_set(1)  # Show cursor
-    curses.start_color()
-    curses.use_default_colors()
-    curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+    try:
+        curses.curs_set(1)  # Show cursor
+    except curses.error:
+        pass
+    try:
+        curses.start_color()
+    except curses.error:
+        pass
+    try:
+        curses.use_default_colors()
+    except curses.error:
+        pass
+    try:
+        curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
+    except curses.error:
+        pass
 
     projects = get_recent_projects()
     filtered_projects = projects
@@ -59,24 +81,26 @@ def main(stdscr):
         stdscr.addstr(0, 0, "Search: " + search_query)
 
         # Display project list
-        for idx, project in enumerate(filtered_projects):
-            x = 0
-            y = idx + 1  # Start displaying projects below the search bar
-            if y >= height - 1:
-                break  # Prevent displaying beyond the terminal height
-            if idx == current_row:
-                stdscr.attron(curses.color_pair(1))
-                stdscr.addstr(y, x, project[:width-1])
-                stdscr.attroff(curses.color_pair(1))
-            else:
-                stdscr.addstr(y, x, project[:width-1])
+        if not filtered_projects:
+            stdscr.addstr(2, 0, "No recent projects found.")
+        else:
+            for idx, project in enumerate(filtered_projects):
+                x = 0
+                y = idx + 1  # Start displaying projects below the search bar
+                if y >= height - 1:
+                    break  # Prevent displaying beyond the terminal height
+                if idx == current_row:
+                    stdscr.attron(curses.color_pair(1))
+                    stdscr.addstr(y, x, project[:width-1])
+                    stdscr.attroff(curses.color_pair(1))
+                else:
+                    stdscr.addstr(y, x, project[:width-1])
 
         stdscr.refresh()
 
         key = stdscr.getch()
 
         if key == 27:  # ESC key
-            subprocess.run(exit, shell=True, check=True, text=True, capture_output=True)
             break
         elif key == curses.KEY_UP and current_row > 0:
             current_row -= 1
@@ -96,26 +120,18 @@ def main(stdscr):
             current_row = 0
 
 def open_project(project_path):
-    subprocess.call(['code', project_path, '--enable-features=UseOzonePlatform', '--ozone-platform=wayland'])
+    try:
+        subprocess.Popen(
+            ['code', project_path, '--enable-features=UseOzonePlatform', '--ozone-platform=wayland'],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True
+        )
+    except Exception:
+        pass
 
 def open_and_exit(project_path):
-    def open_project_thread():
-        open_project(project_path)
-
-    def close_terminal_thread():
-        subprocess.run(exit, shell=True, check=True, text=True, capture_output=True)
-
-    open_thread = threading.Thread(target=open_project_thread)
-    close_thread = threading.Thread(target=close_terminal_thread)
-
-    open_thread.start()
-    # time.sleep(1)
-    close_thread.start()
-
-    close_thread.join()
-    open_thread.join()
-
-exit = "hyprctl dispatch closewindow kitty-rec"
+    open_project(project_path)
 
 if __name__ == "__main__":
     curses.wrapper(main)

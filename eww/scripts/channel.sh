@@ -1,32 +1,33 @@
 #!/bin/sh
 
-sink=`pactl info | grep "Default Sink" | cut -d ":" -f2`
-sink=${sink:1}
-speaker=alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink
-headphone=alsa_output.usb-GeneralPlus_USB_Audio_Device-00.mono-fallback
-headphone2=alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Headphones__sink
+sink=$(pactl info 2>/dev/null | grep "Default Sink" | cut -d ":" -f2 | xargs)
+source=$(pactl info 2>/dev/null | grep "Default Source" | cut -d ":" -f2 | xargs)
 
+# Fallback defaults if empty
+if [ -z "$sink" ]; then sink="default"; fi
+if [ -z "$source" ]; then source="default"; fi
 
-if [ "$sink" = "$speaker" ]; then
-    output="󰓃"
-elif [ "$sink" = "$headphone" ] || [ "$sink" = "$headphone2" ]; then
-    output="󰋋"
-else
-    output="Other"
-fi
+# Detect output icon
+case "$sink" in
+    *headphone*|*headset*|*usb*|*mono-fallback*)
+        output="󰋋" # Headphone icon
+        ;;
+    *)
+        output="󰓃" # Speaker icon
+        ;;
+esac
 
-# microphone
-source=`pactl info | grep "Default Source" | cut -d ":" -f2`
-source=${source:1}
+# Detect input icon
+case "$source" in
+    *mic*|*usb*|*headset*)
+        input="" # Microphone icon
+        ;;
+    *platform*|*analog-stereo*)
+        input=" " # Internal mic icon
+        ;;
+    *)
+        input="" # Default to mic
+        ;;
+esac
 
-pc_mic=alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source
-hp_mic=alsa_input.usb-GeneralPlus_USB_Audio_Device-00.mono-fallback
-
-if [ "$source" = "$pc_mic" ]; then
-    input=""
-elif [ "$source" = "$hp_mic" ]; then
-    input="" 
-else
-    input="o"
-fi
-echo {\"output\":\"${output}\", \"input\":\"${input}\"}
+echo "{\"output\":\"${output}\", \"input\":\"${input}\"}"
