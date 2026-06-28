@@ -1,9 +1,9 @@
 window-decoration = false
-window-padding-x = 20,20
-window-padding-y = 20,20
+window-padding-x = 10,10
+window-padding-y = 10,10
 # bold-is-bright = true
 font-family = "JetBrainsMono Nerd Font"
-font-size = 15 
+font-size = 10
 confirm-close-surface = false
-background-opacity = 0.90
-theme = colors-ghostty
+background-opacity = 1
+theme = Oxocarbon
