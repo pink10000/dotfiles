@@ -1,10 +1,9 @@
 import os
+import re
 import json
 import curses
 import sqlite3
 import subprocess
-import threading
-import time
 
 def get_recent_projects():
     home = os.path.expanduser('~')
@@ -13,7 +12,7 @@ def get_recent_projects():
     if not os.path.exists(path):
         raise FileNotFoundError(f"Could not find the VSCode state file at {path}")
 
-    conn = sqlite3.connect(path)
+    conn = sqlite3.connect(f"file:{path}?mode=ro", uri=True)
     cursor = conn.cursor()
 
     cursor.execute("SELECT value FROM ItemTable WHERE key = 'history.recentlyOpenedPathsList'")
@@ -52,7 +51,7 @@ def main(stdscr):
     search_query = ""
 
     while True:
-        stdscr.clear()
+        stdscr.erase()
         height, width = stdscr.getmaxyx()
 
         # Display search bar
@@ -76,7 +75,7 @@ def main(stdscr):
         key = stdscr.getch()
 
         if key == 27:  # ESC key
-            subprocess.run(exit, shell=True, check=True, text=True, capture_output=True)
+            subprocess.Popen(exit_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             break
         elif key == curses.KEY_UP and current_row > 0:
             current_row -= 1
@@ -96,27 +95,31 @@ def main(stdscr):
             current_row = 0
 
 def open_project(project_path):
-    subprocess.call(['code', project_path, '--enable-features=UseOzonePlatform', '--ozone-platform=wayland'])
+    subprocess.Popen(
+        ['code', project_path, '--enable-features=UseOzonePlatform', '--ozone-platform=wayland'],
+        start_new_session=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
 
 def open_and_exit(project_path):
-    def open_project_thread():
-        open_project(project_path)
+    open_project(project_path)
+    subprocess.Popen(exit_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    def close_terminal_thread():
-        subprocess.run(exit, shell=True, check=True, text=True, capture_output=True)
+def get_exit_cmd():
+    """Return the hyprctl close-window command matching the installed Hyprland version."""
+    try:
+        out = subprocess.check_output(['hyprctl', 'version'], text=True, stderr=subprocess.DEVNULL)
+        match = re.search(r'Hyprland\s+(\d+)\.(\d+)\.(\d+)', out)
+        if match and tuple(map(int, match.groups())) >= (0, 55, 0):
+            return ['hyprctl', 'dispatch', 'hl.dsp.window.close("kitty-rec")']
+    except (subprocess.SubprocessError, OSError):
+        pass
+    return ['hyprctl', 'dispatch', 'closewindow', 'kitty-rec']
 
-    open_thread = threading.Thread(target=open_project_thread)
-    close_thread = threading.Thread(target=close_terminal_thread)
-
-    open_thread.start()
-    # time.sleep(1)
-    close_thread.start()
-
-    close_thread.join()
-    open_thread.join()
-
-exit = "hyprctl dispatch closewindow kitty-rec"
+exit_cmd = get_exit_cmd()
 
 if __name__ == "__main__":
+    os.environ.setdefault('ESCDELAY', '25')
     curses.wrapper(main)
 
